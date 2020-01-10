@@ -3,7 +3,7 @@ function login(data) {
     $.ajax({
        method:"POST",
        type:"POST",
-       url:"/login.action",
+       url:"/login",
        data:data,
        success:function (msg) {
            switch (msg){

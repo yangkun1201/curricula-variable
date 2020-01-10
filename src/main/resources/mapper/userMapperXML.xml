@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dao.UserDao">
+<mapper namespace="com.xxj.curriculavariable.mapper.UserMapper">
 
-    <select id="queryAllUserList" resultType="com.entity.User">
+    <select id="queryAllUserList" resultType="com.xxj.curriculavariable.entity.User">
     select * from user
     </select>
 
-    <select id="queryUserByUserId" resultType="com.entity.User">
+    <select id="queryUserByUserId" resultType="com.xxj.curriculavariable.entity.User">
     select id,username from user where id=#{id};
     </select>
 
-    <insert id="insertUser" parameterType="com.entity.User">
+    <insert id="insertUser" parameterType="com.xxj.curriculavariable.entity.User">
     insert into user(username,password)values (#(username),#(password))
     </insert>
 
@@ -23,7 +23,7 @@
         </foreach >
     </insert>
 
-    <update id="updateUser" parameterType="com.entity.User">
+    <update id="updateUser" parameterType="com.xxj.curriculavariable.entity.User">
         update user set username=#{username},password=#{password}
     </update>
 

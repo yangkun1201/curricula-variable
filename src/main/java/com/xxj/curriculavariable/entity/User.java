@@ -1,4 +1,4 @@
-package com.entity;
+package com.xxj.curriculavariable.entity;
 
 public class User {
     private Integer id;

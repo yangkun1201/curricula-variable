@@ -1,9 +1,10 @@
-package com.service;
+package com.xxj.curriculavariable.service;
 
-import com.entity.User;
+import com.xxj.curriculavariable.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public interface UserService {
    List<User> queryAllUserList();

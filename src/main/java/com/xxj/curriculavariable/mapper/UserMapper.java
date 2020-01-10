@@ -1,20 +1,25 @@
-package com.dao;
+package com.xxj.curriculavariable.mapper;
 
-import com.entity.User;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Component;
+import com.xxj.curriculavariable.entity.User;
+
 
 import java.util.List;
 import java.util.Map;
 
-@Component
-public interface UserDao {
+
+public interface UserMapper {
+
     Integer insertUser(User user);
+
     Integer updateUser(User user);
+
     Integer deleteUserById(Integer id);
+
     User queryUserByUserId(Integer id);
+
     List<User> queryAllUserList();
+
     Integer insertBatchUserList(List<User> list);
+
     Map queryUserMap(Integer userId);
 }
