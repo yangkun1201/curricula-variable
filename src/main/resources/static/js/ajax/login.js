@@ -20,7 +20,7 @@ function login(data) {
                    break;
                }
                case "ino":{
-                   dialog("账户id不存在！");
+                   dialog("账户username不存在！");
                    break;
                }
                case "pno":{
