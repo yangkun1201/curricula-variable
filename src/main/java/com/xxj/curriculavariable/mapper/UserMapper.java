@@ -1,8 +1,8 @@
 package com.xxj.curriculavariable.mapper;
 
 import com.xxj.curriculavariable.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
 
@@ -26,6 +26,6 @@ public interface UserMapper {
 
     Map queryUserMap(Integer userId);
 
-    String login( String username,String password);
+    User login(@Param("username")String username,@Param("password")String password);
 
 }

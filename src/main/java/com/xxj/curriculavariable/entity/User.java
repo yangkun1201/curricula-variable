@@ -1,15 +1,16 @@
 package com.xxj.curriculavariable.entity;
 
 public class User {
-    private Integer id;
+    private String id;
     private String username;
     private String password;
+    private String type;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -29,5 +30,8 @@ public class User {
         this.password = password;
     }
 
+    public String getType() { return type; }
+
+    public void setType(String type) { this.type = type; }
 }
 

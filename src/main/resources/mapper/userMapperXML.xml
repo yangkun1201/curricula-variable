@@ -7,12 +7,13 @@
     </select>
 
     <select id="login" resultType="com.xxj.curriculavariable.entity.User">
-    select username from user where username=#{username},password=#{password}
+    select  username,password from user where username=#{username}
     </select>
 
     <select id="queryUserByUserId" resultType="com.xxj.curriculavariable.entity.User">
     select id,username from user where id=#{id}
     </select>
+    <select id="queryUserMap" resultType="java.util.Map"></select>
 
     <insert id="insertUser" parameterType="com.xxj.curriculavariable.entity.User">
     insert into user(username,password)values (#(username),#(password))

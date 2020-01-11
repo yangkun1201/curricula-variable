@@ -10,8 +10,16 @@ import java.util.List;
 
 @Service
 public interface UserService {
+
     List<User> queryAllUserList();
-    String login( String username,String password);
+
+    /**
+     * 登录
+     * @param username
+     * @param password
+     * @return
+     */
+    User login( String username,String password);
 
 }
 

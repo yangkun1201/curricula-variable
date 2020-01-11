@@ -22,37 +22,44 @@ public class UserController {
 
     @RequestMapping("/queryAllUserList")
     @ResponseBody
-    public String queryAllUserList(){
-        String s="";
-        List<User> list=userService.queryAllUserList();
-        for(User user:list){
+    public String queryAllUserList() {
+        String s = "";
+        List<User> list = userService.queryAllUserList();
+        for (User user : list) {
             System.out.println(user.toString());
-            s+=user.toString();
+            s += user.toString();
         }
         return s;
     }
 
-    @RequestMapping(value = "/login",method= RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody  //因为返回给AJAX处理,所以加这个注解,把返回的"ino"变成json格式
-    public String login(@RequestParam("username") String username, @RequestParam("password") String password){
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
         System.out.println("这里实现登陆校验");
-        System.out.println("username: "+username);
-        System.out.println("password: "+password);
+        System.out.println("username: " + username);
+        System.out.println("password: " + password);
         //todo 这里实现验证密码的功能
         //这里的返回数据需要自己设计
-        String s=userService.login(username,password);
-        if(s==null)
-        {
+        User user = userService.login(username, password);
+        System.out.println(user.getPassword());
+        if (user == null) {
             return "ino";
-        }else {
+        } else if (password.equals(user.getPassword())) {
             return "s_success";
+        } else {
+            return "pno";
         }
     }
-
 
     @RequestMapping("/index")
     public String index(){
         System.out.println("调转登陆页面");
         return "login/login";
+    }
+
+    @RequestMapping("/student")
+    public String student(){
+        System.out.println("调转学生界面");
+        return "student/menu/menu";
     }
 }
