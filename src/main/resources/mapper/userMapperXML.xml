@@ -6,8 +6,12 @@
     select * from user
     </select>
 
+    <select id="login" resultType="com.xxj.curriculavariable.entity.User">
+    select username from user where username=#{username},password=#{password}
+    </select>
+
     <select id="queryUserByUserId" resultType="com.xxj.curriculavariable.entity.User">
-    select id,username from user where id=#{id};
+    select id,username from user where id=#{id}
     </select>
 
     <insert id="insertUser" parameterType="com.xxj.curriculavariable.entity.User">
@@ -30,4 +34,5 @@
     <delete id="deleteUserById" parameterType="Integer">
         delete from user where id=#{id}
     </delete>
+
 </mapper>

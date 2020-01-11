@@ -4,11 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-/**
- * @Author Azhu
- * @Description //TODO
- * @Date 2020/1/10 22:27
- **/
+
 @Configuration
 public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
