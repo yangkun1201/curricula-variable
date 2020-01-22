@@ -7,7 +7,7 @@
     </select>
 
     <select id="login" resultType="com.xxj.curriculavariable.entity.User">
-    select  username,password from user where username=#{username}
+    select  username,password,usertype from user where username=#{username}
     </select>
 
     <select id="queryUserByUserId" resultType="com.xxj.curriculavariable.entity.User">

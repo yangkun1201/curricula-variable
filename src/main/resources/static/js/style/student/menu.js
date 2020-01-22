@@ -10,7 +10,7 @@ $(function () {
         switch (menu){
             case "index":{
                 save("index");
-                window.location.href="/studentIndex";
+                window.location.href="/studentIndex"
                 break;
             }
             case "info":{

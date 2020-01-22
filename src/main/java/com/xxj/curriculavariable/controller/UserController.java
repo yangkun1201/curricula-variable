@@ -45,7 +45,9 @@ public class UserController {
         if (user == null) {
             return "ino";
         } else if (password.equals(user.getPassword())) {
-            return "s_success";
+            if(user.getUsertype().equals("1")){  return "s_success";}
+            else if(user.getUsertype().equals("2")){ return "t_success";}
+            else{return "a_success";}
         } else {
             return "pno";
         }
@@ -60,6 +62,18 @@ public class UserController {
     @RequestMapping("/student")
     public String student(){
         System.out.println("调转学生界面");
-        return "student/menu/menu";
+        return "student/index";
+    }
+
+    @RequestMapping("/teacher")
+    public String teacher(){
+        System.out.println("调转教师界面");
+        return "teacher/index";
+    }
+
+    @RequestMapping("/admin")
+    public String admin(){
+        System.out.println("调转管理员界面");
+        return "admin/index";
     }
 }
