@@ -34,23 +34,11 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>学生编号：<span th:text="${}"></span>
+                            <td>学生编号：<span th:text="${session.student.getId()}"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td>学生姓名：<span th:text="${session.student.getName()}"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>学生性别：<span th:text="${session.student.getS_sex()}"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>学生专业：<span th:text="${session.student.getS_major()}"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>学生积分：<span th:text="${session.student.getS_point()}"></span>
+                            <td>学生姓名：<span th:text="${session.student.getUsername()}"></span>
                             </td>
                         </tr>
                     </tbody>

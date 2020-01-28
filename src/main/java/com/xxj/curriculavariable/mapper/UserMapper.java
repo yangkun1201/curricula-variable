@@ -12,20 +12,22 @@ import java.util.Map;
 @Component
 public interface UserMapper {
 
-    Integer insertUser(User user);
+    String insertUser(User user);
 
-    Integer updateUser(User user);
+    String updateUser(User user);
 
-    Integer deleteUserById(Integer id);
+    String deleteUserById(String id);
 
-    User queryUserByUserId(Integer id);
+    User queryUserByUserId(String id);
 
     List<User> queryAllUserList();
+
+     User selectById(String id);
 
     Integer insertBatchUserList(List<User> list);
 
     Map queryUserMap(Integer userId);
 
-    User login(@Param("username")String username,@Param("password")String password);
+    User login(@Param("id")String id,@Param("password")String password);
 
 }

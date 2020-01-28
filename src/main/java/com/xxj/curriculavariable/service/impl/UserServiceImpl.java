@@ -17,7 +17,18 @@ public class UserServiceImpl implements UserService {
         return userMapper.queryAllUserList();
     }
 
-    public User login(String username,String password){
-        return userMapper.login(username,password);
+    public User login(String id,String password){
+        return userMapper.login(id,password);
+    }
+
+    public User getUser(String id){
+        User user=null;
+        try {
+            user=userMapper.selectById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+        return user;
     }
 }

@@ -15,12 +15,12 @@ public interface UserService {
 
     /**
      * 登录
-     * @param username
+     * @param id
      * @param password
      * @return
      */
-    User login( String username,String password);
-
+    User login( String id,String password);
+    public User getUser(String id);
 }
 
 

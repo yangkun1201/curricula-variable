@@ -6,6 +6,15 @@ public class User {
     private String password;
     private String usertype;
 
+    public User(){}
+
+    public User(String id,String username,String password,String usertype){
+        this.id=id;
+        this.username=username;
+        this.password=password;
+        this.usertype=usertype;
+    }
+
     public String getId() {
         return id;
     }
@@ -30,8 +39,21 @@ public class User {
         this.password = password;
     }
 
-    public String getUsertype() { return usertype; }
+    public String getUsertype() {
+        return usertype;
+    }
 
-    public void setUsertype(String usertype) { this.usertype = usertype; }
+    public void setUsertype(String usertype) {
+        this.usertype = usertype;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
 

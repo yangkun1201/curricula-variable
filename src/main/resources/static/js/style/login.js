@@ -3,13 +3,15 @@ $(function () {
     $(".dialog").load("static/page/dialog.html");
     // 登录按钮绑定事件
     $("input[name='submit']").click(function () {
-       var username = $("input[name='username']").val();
+       var id = $("input[name='id']").val();
+       console.log(id);
        var password = $("input[name='password']").val();
-       if(username==""||password==""){
+       if(id==""||password==""){
            dialog("输入框不能为空！");
            return;
        }
-       var data = {"username":username,"password":password};
+       var data = {"id":id,"password":password};
+
        login(data);
     });
 })
