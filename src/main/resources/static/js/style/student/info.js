@@ -1,6 +1,6 @@
 $(function () {
     // 加载dialog页面
-    $(".dialog").load("page/dialog.html");
+    $(".dialog").load("static/page/dialog.html");
 
     // 重置按钮
     $("input[name='restart']").click(function () {
@@ -8,15 +8,15 @@ $(function () {
     });
     // 保存按钮
     $("input[name='save']").click(function () {
-        var name = $("input[name='name']").val();
+        var userName = $("input[name='userName']").val();
         var password = $("input[name='password']").val();
-        var sex = $("input[name='sex']").val();
+        var gender = $("input[name='gender']").val();
         var major = $("input[name='major']").val();
-        if(name==""||password==""||sex==""||major==""){
+        if(userName==""||password==""||gender==""||major==""){
             dialog("输入框不能为空！");
             return;
         }
-        var data = {"name":name,"password":password,"sex":sex,"major":major};
+        var data = {"userName":userName,"password":password,"gender":gender,"major":major};
         update_studentInfo(data);
     });
 })

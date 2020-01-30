@@ -52,7 +52,11 @@ public class UserController {
                 session.setAttribute("student",user1);
                 return "s_success";
             }
-            else if(user.getUsertype().equals("2")){ return "t_success";}
+            else if(user.getUsertype().equals("2")){
+                User user2=userService.getUser(id);
+                session.setAttribute("teacher",user2);
+                return "t_success";
+            }
             else{return "a_success";}
         } else {
             return "pno";

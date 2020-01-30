@@ -14,7 +14,9 @@ public interface UserMapper {
 
     String insertUser(User user);
 
-    String updateUser(User user);
+    //修改指定id的记录
+    public void updateByID(@Param("userName")String userName,@Param("password") String password,
+                           @Param("gender") String gender,@Param("major") String  major);
 
     String deleteUserById(String id);
 

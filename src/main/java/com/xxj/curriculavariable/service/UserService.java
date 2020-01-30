@@ -19,8 +19,12 @@ public interface UserService {
      * @param password
      * @return
      */
+    //处理登录业务
     User login( String id,String password);
+    //获取一个对象
     public User getUser(String id);
+    //修改学生信息业务
+    public  boolean updateService(String id,String userName,String password,String gender,String major);
 }
 
 

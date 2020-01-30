@@ -28,8 +28,8 @@
         </foreach >
     </insert>
 
-    <update id="updateUser" parameterType="com.xxj.curriculavariable.entity.User">
-        update user set username=#{username},password=#{password}
+    <update id="updateByID" parameterType="com.xxj.curriculavariable.entity.User">
+        update user set username=#{username},password=#{password},gender=#{gender},major=#{major} where id=#{id}
     </update>
 
     <delete id="deleteUserById" parameterType="Integer">

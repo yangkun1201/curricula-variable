@@ -31,4 +31,16 @@ public class UserServiceImpl implements UserService {
         }
         return user;
     }
+
+    @Override
+        public boolean updateService(String id,String userName,String password,String gender,String major){
+        try{
+            userMapper.updateByID(userName,password,gender,major);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
 }

@@ -5,14 +5,19 @@ public class User {
     private String username;
     private String password;
     private String usertype;
+    private String gender;
+    private String major;
 
     public User(){}
 
-    public User(String id,String username,String password,String usertype){
+    public User(String id,String username,String password,String usertype,String gender,String major){
         this.id=id;
         this.username=username;
         this.password=password;
         this.usertype=usertype;
+        this.gender=gender;
+        this.major=major;
+
     }
 
     public String getId() {
@@ -39,13 +44,19 @@ public class User {
         this.password = password;
     }
 
-    public String getUsertype() {
-        return usertype;
-    }
+    public String getUsertype() { return usertype; }
 
     public void setUsertype(String usertype) {
         this.usertype = usertype;
     }
+
+    public String getGender() { return gender; }
+
+    public void setGender(String gender) { this.gender = gender; }
+
+    public String getMajor() { return major; }
+
+    public void setMajor(String major) { this.major = major; }
 
     @Override
     public String toString() {
@@ -53,6 +64,8 @@ public class User {
                 "id='" + id + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ",gender='"+gender+'\''+
+                ",major'+"+major+'\''+
                 '}';
     }
 }
