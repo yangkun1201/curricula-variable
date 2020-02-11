@@ -1,6 +1,6 @@
 $(function () {
     // 加载dialog页面
-    $(".dialog").load("page/dialog.html");
+    $(".dialog").load("static/page/dialog.html");
 
     // 点击修改按钮
     $("input[name='update']").click(function () {

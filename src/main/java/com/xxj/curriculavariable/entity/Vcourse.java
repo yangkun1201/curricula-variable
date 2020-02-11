@@ -6,26 +6,24 @@ public class Vcourse {
     private String c_room;
     private String c_time;
     private int c_point;
-    private int point;
+
 
     public Vcourse(){}
 
-    public Vcourse(Course course, int point){
+    public Vcourse(Course course){
         this.c_id = course.getC_id();
         this.c_name = course.getC_name();
         this.c_room = course.getC_room();
         this.c_time = course.getC_time();
         this.c_point = course.getC_point();
-        this.point = point;
     }
 
-    public Vcourse(String c_id, String c_name, String c_room, String c_time, int c_point, int point) {
+    public Vcourse(String c_id, String c_name, String c_room, String c_time, int c_point) {
         this.c_id = c_id;
         this.c_name = c_name;
         this.c_room = c_room;
         this.c_time = c_time;
         this.c_point = c_point;
-        this.point = point;
     }
 
     public String getC_id() {
@@ -68,14 +66,6 @@ public class Vcourse {
         this.c_point = c_point;
     }
 
-    public int getPoint() {
-        return point;
-    }
-
-    public void setPoint(int point) {
-        this.point = point;
-    }
-
     @Override
     public String toString() {
         return "Vcourse{" +
@@ -84,7 +74,6 @@ public class Vcourse {
                 ", c_room='" + c_room + '\'' +
                 ", c_time='" + c_time + '\'' +
                 ", c_point=" + c_point +
-                ", point=" + point +
                 '}';
     }
 }

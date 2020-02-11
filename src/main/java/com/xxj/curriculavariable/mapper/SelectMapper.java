@@ -14,8 +14,8 @@ public interface SelectMapper {
     public Select selects(@Param("s_id") String s_id, @Param("c_id") String c_id);
     // 根据学生id查询
     public List<Select> selectBySid(String s_id);
-    // 修改积分
-    public void updatePoint(Select select);
     // 删除一条记录
     public void delete(@Param("s_id") String s_id, @Param("c_id") String c_id);
+    //设定只允许选一门课
+    public Select selectone();
 }

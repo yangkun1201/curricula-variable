@@ -18,12 +18,6 @@ public interface UserMapper {
     public void updateByID(@Param("id")String id,@Param("userName")String userName,@Param("password") String password,
                            @Param("gender") String gender,@Param("major") String  major);
 
-    // 扣除积分操作
-    public void reducePoint(@Param("id") String id,@Param("point") int point);
-
-    // 返还积分操作
-    public void plusPoint(@Param("s_id") String s_id,@Param("s_point") int s_point);
-
     String deleteUserById(String id);
 
     User queryUserByUserId(String id);

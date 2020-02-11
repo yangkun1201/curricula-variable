@@ -1,6 +1,6 @@
 $(function () {
     // 加载dialog页面
-    $(".dialog").load("page/dialog.html");
+    $(".dialog").load("static/page/dialog.html");
     // 上一页
     $(".pagination li a[name='font']").click(function () {
        var url = location.search;

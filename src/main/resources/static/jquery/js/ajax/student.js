@@ -31,8 +31,8 @@ function select_studentCourse(data) {
                     dialog("选课成功！");
                     break;
                 }
-                case "npoint":{
-                    dialog("积分不够！");
+                case "nouse":{
+                    dialog("你已选课，不可多选！");
                     break;
                 }
                 case "no":{

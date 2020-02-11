@@ -26,13 +26,12 @@ public class SelectServiceImpl implements SelectService {
     public String selectCourse(Select select) {
         try{
             User student = userMapper.selectById(select.getS_id());
-            if(select.getPoint()>student.getPoint()){
-                return "npoint";
-            }
             if(selectMapper.selects(select.getS_id(),select.getC_id())!=null){
                 return "no";
             }
-            userMapper.reducePoint(select.getS_id(),select.getPoint());
+            if(selectMapper.selectone()!=null){
+                return "nouse";
+            }
             selectMapper.insert(select);
         }catch (Exception e){
             e.printStackTrace();
@@ -41,32 +40,10 @@ public class SelectServiceImpl implements SelectService {
         return "success";
     }
 
-    @Override
-    public boolean updatePoint(Select select) {
-        try{
-            int old = selectMapper.selects(select.getS_id(),select.getC_id()).getPoint();
-            if(old<select.getPoint()){
-                int newpoint = select.getPoint()-old;
-                userMapper.reducePoint(select.getS_id(),newpoint);
-            }
-            if(old>select.getPoint()){
-                int newpoint = old-select.getPoint();
-                userMapper.plusPoint(select.getS_id(),newpoint);
-            }
-
-            selectMapper.updatePoint(select);
-        }catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public boolean removeCourse(String s_id, String c_id) {
         try{
-            int point = selectMapper.selects(s_id,c_id).getPoint();
-            userMapper.plusPoint(s_id,point);
             selectMapper.delete(s_id,c_id);
         }catch (Exception e){
             e.printStackTrace();
@@ -84,7 +61,7 @@ public class SelectServiceImpl implements SelectService {
             list2 = new ArrayList<>();
             Vcourse p = null;
             for(Select e : list){
-                p = new Vcourse(courseMapper.selectById(e.getC_id()),e.getPoint());
+                p = new Vcourse(courseMapper.selectById(e.getC_id()));
                 list2.add(p);
             }
         }catch (Exception e){

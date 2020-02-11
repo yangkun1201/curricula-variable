@@ -3,7 +3,7 @@
 <mapper namespace="com.xxj.curriculavariable.mapper.SelectMapper">
 
     <insert id="insert" parameterType="com.xxj.curriculavariable.entity.Select">
-          INSERT INTO `select` VALUES (#{s_id},#{c_id},#{point})
+          INSERT INTO `select` VALUES (#{s_id},#{c_id})
     </insert>
     <select id="selects" resultType="com.xxj.curriculavariable.entity.Select">
         SELECT * FROM `select` WHERE s_id=#{s_id} and c_id=#{c_id}
@@ -11,10 +11,10 @@
     <select id="selectBySid" resultType="com.xxj.curriculavariable.entity.Select">
         SELECT * FROM `select` WHERE s_id=#{s_id}
     </select>
-    <update id="updatePoint" parameterType="com.xxj.curriculavariable.entity.Select">
-        UPDATE `select` SET point=#{point} WHERE s_id=#{s_id} and c_id=#{c_id}
-    </update>
     <delete id="delete">
         DELETE FROM `select` WHERE s_id=#{s_id} and c_id=#{c_id}
     </delete>
+    <select id="selectone" resultType="com.xxj.curriculavariable.entity.Select">
+        select * from `select`
+    </select>
 </mapper>
