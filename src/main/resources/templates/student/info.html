@@ -8,10 +8,10 @@
     <link rel="stylesheet" type="text/css" href="/static/css/index.css"/>
     <script type="text/javascript" src="/static/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="/static/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/static/js/style/dialog.js"></script>
-    <script type="text/javascript" src="/static/js/ajax/student.js"></script>
-    <script type="text/javascript" src="/static/js/style/student/menu.js"></script>
-    <script type="text/javascript" src="/static/js/style/student/info.js"></script>
+    <script type="text/javascript" src="/static/jquery/js/style/dialog.js"></script>
+    <script type="text/javascript" src="/static/jquery/js/ajax/student.js"></script>
+    <script type="text/javascript" src="/static/jquery/js/style/student/menu.js"></script>
+    <script type="text/javascript" src="/static/jquery/js/style/student/info.js"></script>
 </head>
 <body>
 <!-- 加载菜单栏部分 -->
@@ -36,7 +36,7 @@
                 </div><br/>
                 <div class="form-inline">
                     <label>学生姓名：</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" class="form-control" name="name" th:value="${session.student.getUsername()}"/>
+                    <input type="text" class="form-control" name="userName" th:value="${session.student.getUsername()}"/>
                 </div><br/>
                 <div class="form-inline">
                     <label>学生密码：</label>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -44,11 +44,15 @@
                 </div><br/>
                 <div class="form-inline">
                     <label>学生性别：</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" class="form-control" name="sex" th:value="${session.student.getGender()}"/>
+                    <input type="text" class="form-control" name="gender" th:value="${session.student.getGender()}"/>
                 </div><br/>
                 <div class="form-inline">
                     <label>学生专业：</label>&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" class="form-control" name="major" th:value="${session.student.getMajor()}"/>
+                </div><br/>
+                <div class="form-inline">
+                    <label>学生积分：</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="form-control" name="major" th:value="${session.student.getPoint()}"/>
                 </div><br/>
                 <div class="form-inline">
                     <input type="button" name="restart" class="btn btn-default" value="重置"/>

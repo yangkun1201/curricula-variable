@@ -29,7 +29,7 @@
     </insert>
 
     <update id="updateByID" parameterType="com.xxj.curriculavariable.entity.User">
-        update user set username=#{username},password=#{password},gender=#{gender},major=#{major} where id=#{id}
+        update user set username=#{userName},password=#{password},gender=#{gender},major=#{major} where id=#{id}
     </update>
 
     <delete id="deleteUserById" parameterType="Integer">
@@ -39,5 +39,13 @@
     <select id="selectById" resultType="com.xxj.curriculavariable.entity.User" parameterType="String">
         select * from user where id=#{id}
     </select>
+
+    <update id="reducePoint">
+        update user set point=point-#{point} where id=#{id}
+    </update>
+
+    <update id="plusPoint">
+        UPDATE user SET point=point+#{s_point} WHERE id=#{s_id}
+    </update>
 
 </mapper>

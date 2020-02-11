@@ -1,9 +1,11 @@
 package com.xxj.curriculavariable.controller;
 
+import com.xxj.curriculavariable.entity.Course;
 import com.xxj.curriculavariable.entity.User;
-import com.xxj.curriculavariable.entity.course;
+import com.xxj.curriculavariable.entity.Vcourse;
+import com.xxj.curriculavariable.service.SelectService;
 import com.xxj.curriculavariable.service.UserService;
-import com.xxj.curriculavariable.service.courseService;
+import com.xxj.curriculavariable.service.CourseService;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +21,10 @@ public class CreatePageController {
     private UserService userService;
 
     @Resource
-    private courseService courseService;
+    private CourseService courseService;
+
+    @Resource
+    private SelectService selectService;
 
     //请求访问学生首页
     @RequestMapping("/studentIndex")
@@ -41,7 +46,7 @@ public class CreatePageController {
         HttpSession session = null;
         try{
             session = request.getSession();
-            List<course> list = courseService.sortPage(page);
+            List<Course> list = courseService.sortPage(page);
             int number = courseService.getNumber();
             session.setAttribute("course",list);
             session.setAttribute("number",number);
@@ -51,6 +56,19 @@ public class CreatePageController {
         return "student/course";
     }
 
+    // 请求显示已选课程
+    @RequestMapping("/select")
+    public String select(javax.servlet.http.HttpServletRequest request){
+        try{
+            HttpSession session = request.getSession();
+            User student = (User) session.getAttribute("student");
+            List<Vcourse> list = selectService.selectCourse2(student.getId());
+            session.setAttribute("select",list);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {}
+        return "student/select";
+    }
 
 
     //更新页面

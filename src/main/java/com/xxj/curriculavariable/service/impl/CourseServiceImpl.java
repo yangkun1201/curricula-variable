@@ -1,8 +1,8 @@
 package com.xxj.curriculavariable.service.impl;
 
-import com.xxj.curriculavariable.entity.course;
-import com.xxj.curriculavariable.mapper.courseMapper;
-import com.xxj.curriculavariable.service.courseService;
+import com.xxj.curriculavariable.entity.Course;
+import com.xxj.curriculavariable.mapper.CourseMapper;
+import com.xxj.curriculavariable.service.CourseService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class courseServiceImpl implements  courseService{
+public class CourseServiceImpl implements CourseService {
 
     @Resource
-    private courseMapper courseMapper;
+    private CourseMapper courseMapper;
 
     @Override
-    public List<course> sortPage(int page) {
-        List<course> list = null;
-        List<course> newlist = new ArrayList<>();
+    public List<Course> sortPage(int page) {
+        List<Course> list = null;
+        List<Course> newlist = new ArrayList<>();
         try {
             list=courseMapper.selectAll();
             int start=(page-1)*5;
@@ -35,7 +35,7 @@ public class courseServiceImpl implements  courseService{
 
     @Override
     public int getNumber() {
-        List<course> list = null;
+        List<Course> list = null;
         try{
             list = courseMapper.selectAll();
         }catch (Exception e){

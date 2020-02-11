@@ -7,16 +7,18 @@ public class User {
     private String usertype;
     private String gender;
     private String major;
+    private int point;
 
     public User(){}
 
-    public User(String id,String username,String password,String usertype,String gender,String major){
+    public User(String id,String username,String password,String usertype,String gender,String major,int point){
         this.id=id;
         this.username=username;
         this.password=password;
         this.usertype=usertype;
         this.gender=gender;
         this.major=major;
+        this.point=point;
 
     }
 
@@ -58,6 +60,10 @@ public class User {
 
     public void setMajor(String major) { this.major = major; }
 
+    public int getPoint(){return point;}
+
+    public void setPoint(){this.point=point;}
+
     @Override
     public String toString() {
         return "User{" +
@@ -66,6 +72,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ",gender='"+gender+'\''+
                 ",major'+"+major+'\''+
+                ",point+"+point+'\''+
                 '}';
     }
 }

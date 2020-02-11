@@ -1,15 +1,15 @@
 package com.xxj.curriculavariable.entity;
 
-public class course {
+public class Course {
     private String c_id;
     private String c_name;
     private String c_room;
     private String c_time;
     private int c_point;
 
-    public course(){}
+    public Course(){}
 
-    public course(String c_id, String c_name, String c_room, String c_time, int c_point) {
+    public Course(String c_id, String c_name, String c_room, String c_time, int c_point) {
         this.c_id = c_id;
         this.c_name = c_name;
         this.c_room = c_room;
@@ -59,7 +59,7 @@ public class course {
 
     @Override
     public String toString() {
-        return "course{" +
+        return "Course{" +
                 "c_id='" + c_id + '\'' +
                 ", c_name='" + c_name + '\'' +
                 ", c_room='" + c_room + '\'' +

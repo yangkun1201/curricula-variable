@@ -17,6 +17,7 @@ $(function () {
             return;
         }
         var data = {"userName":userName,"password":password,"gender":gender,"major":major};
+        console.log(data);
         update_studentInfo(data);
     });
 })

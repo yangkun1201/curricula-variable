@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xxj.curriculavariable.mapper.SelectMapper">
+
+    <insert id="insert" parameterType="com.xxj.curriculavariable.entity.Select">
+          INSERT INTO `select` VALUES (#{s_id},#{c_id},#{point})
+    </insert>
+    <select id="selects" resultType="com.xxj.curriculavariable.entity.Select">
+        SELECT * FROM `select` WHERE s_id=#{s_id} and c_id=#{c_id}
+    </select>
+    <select id="selectBySid" resultType="com.xxj.curriculavariable.entity.Select">
+        SELECT * FROM `select` WHERE s_id=#{s_id}
+    </select>
+    <update id="updatePoint" parameterType="com.xxj.curriculavariable.entity.Select">
+        UPDATE `select` SET point=#{point} WHERE s_id=#{s_id} and c_id=#{c_id}
+    </update>
+    <delete id="delete">
+        DELETE FROM `select` WHERE s_id=#{s_id} and c_id=#{c_id}
+    </delete>
+</mapper>

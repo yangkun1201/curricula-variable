@@ -34,6 +34,7 @@ $(function () {
            return;
        }
        var data = {"id":id,"point":point};
+        console.log(data);
        select_studentCourse(data);
     });
 })
