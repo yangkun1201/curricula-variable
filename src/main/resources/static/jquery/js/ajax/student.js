@@ -25,6 +25,7 @@ function select_studentCourse(data) {
        url:"/selectCourse",
        data:data,
         success:function (msg) {
+           console.log(msg);
             switch (msg){
                 case "success":{
                     dialog("选课成功！");
@@ -35,6 +36,7 @@ function select_studentCourse(data) {
                     break;
                 }
                 case "no":{
+                    console.log("llllll");
                     dialog("该课程已选！");
                     break;
                 }

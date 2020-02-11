@@ -26,8 +26,12 @@ public class SelectServiceImpl implements SelectService {
     public String selectCourse(Select select) {
         try{
             User student = userMapper.selectById(select.getS_id());
-            if(select.getPoint()>student.getPoint()) return "npoint";
-            if(selectMapper.selects(select.getS_id(),select.getC_id())!=null) return "no";
+            if(select.getPoint()>student.getPoint()){
+                return "npoint";
+            }
+            if(selectMapper.selects(select.getS_id(),select.getC_id())!=null){
+                return "no";
+            }
             userMapper.reducePoint(select.getS_id(),select.getPoint());
             selectMapper.insert(select);
         }catch (Exception e){

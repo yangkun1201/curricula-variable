@@ -39,8 +39,8 @@ public class StudentController {
             session = request.getSession();
             String id = ((User) session.getAttribute("student")).getId();
             boolean ch = userService.updateService(id,userName,password, gender, major);
-            if (ch) out.print("success");
-            else out.print("error");
+            if(ch) { out.print("success");}
+            else{ out.print("error");}
             out.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -60,6 +60,7 @@ public class StudentController {
             HttpSession session = request.getSession();
             String s_id = ((User)session.getAttribute("student")).getId();
             String result = selectService.selectCourse(new Select(s_id,c_id,point));
+
             out.print(result);
             out.flush();
         }catch (IOException e){

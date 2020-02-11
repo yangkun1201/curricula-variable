@@ -63,7 +63,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping("/index")
+    @RequestMapping({"/index",""})
     public String index(){
         System.out.println("调转登陆页面");
         return "login/login";
@@ -85,5 +85,19 @@ public class UserController {
     public String admin(){
         System.out.println("调转管理员界面");
         return "admin/index";
+    }
+
+    // 退出登录
+    @RequestMapping("/exit")
+    public String exit(javax.servlet.http.HttpServletRequest request){
+        HttpSession session = null;
+        try{
+            session = request.getSession();
+            String user = session.getAttribute("user").toString();
+            session.removeAttribute(user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {}
+        return "login/login";
     }
 }
