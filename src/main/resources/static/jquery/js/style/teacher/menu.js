@@ -8,6 +8,11 @@ $(function () {
     $(".course-menu li").click(function () {
         var menu = $(this).attr("name");
         switch (menu){
+            case "index":{
+                save("index");
+                window.location.href="/teacherIndex"
+                break;
+            }
             case "info":{
                 save("info");
                 window.location.href="/teacherInfo";
@@ -18,9 +23,9 @@ $(function () {
                 window.location.href="/courseInsert";
                 break;
             }
-            case "course":{
-                save("course");
-                window.location.href="/course?page=1";
+            case "course1":{
+                save("course1");
+                window.location.href="/course1?page=1";
                 break;
             }
             case "select":{
@@ -28,10 +33,7 @@ $(function () {
                 window.location.href="/select";
                 break;
             }
-            case "table":{
-                alert("生成课表");
-                break;
-            }
+
             case "exit":{
                 clear();
                 window.location.href="/exit";

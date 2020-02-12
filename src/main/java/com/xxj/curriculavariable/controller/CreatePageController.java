@@ -33,6 +33,12 @@ public class CreatePageController {
         return "student/index";
     }
 
+    //请求访问教师首页
+    @RequestMapping("/teacherIndex")
+    public String teacherIndex(javax.servlet.http.HttpServletRequest request){
+        updatePageInfo2((HttpServletRequest) request);
+        return "teacher/index";
+    }
     //请求访问学生个人中心
     @RequestMapping("/studentInfo")
     public String studentInfo(javax.servlet.http.HttpServletRequest request){
@@ -69,6 +75,22 @@ public class CreatePageController {
             e.printStackTrace();
         }finally {}
         return "student/course";
+    }
+
+    //请求教师分页显示
+    @RequestMapping("/course1")
+    public String course1(@RequestParam("page") int page, javax.servlet.http.HttpServletRequest request){
+        HttpSession session = null;
+        try{
+            session = request.getSession();
+            List<Course> list = courseService.sortPage(page);
+            int number = courseService.getNumber();
+            session.setAttribute("course",list);
+            session.setAttribute("number",number);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {}
+        return "teacher/course";
     }
 
     // 请求显示已选课程
