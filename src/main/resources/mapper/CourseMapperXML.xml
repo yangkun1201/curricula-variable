@@ -10,4 +10,8 @@
         SELECT * FROM course WHERE c_id=#{c_id}
     </select>
 
+    <insert id="insertCourse" parameterType="com.xxj.curriculavariable.entity.Course">
+        insert into course values (#{c_id},#{c_name},#{c_room},#{c_time},#{c_point})
+    </insert>
+
 </mapper>

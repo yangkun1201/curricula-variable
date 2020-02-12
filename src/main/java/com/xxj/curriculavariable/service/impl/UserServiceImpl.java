@@ -17,10 +17,12 @@ public class UserServiceImpl implements UserService {
         return userMapper.queryAllUserList();
     }
 
+    @Override
     public User login(String id,String password){
         return userMapper.login(id,password);
     }
 
+    @Override
     public User getUser(String id){
         User user=null;
         try {
