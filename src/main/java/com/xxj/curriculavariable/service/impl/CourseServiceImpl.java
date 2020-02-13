@@ -35,14 +35,14 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public String insertService(String c_id,String c_name,String c_room,String c_time,int c_point){
+    public String insertService(String c_id,String c_name,String c_room,String c_time,int c_point,String c_teacher){
         try{
             Course ch=courseMapper.selectById(c_id);
             if(ch!=null)
             {
                 return "duplicate";
             }
-            courseMapper.insertCourse(c_id,c_name,c_room,c_time,c_point);
+            courseMapper.insertCourse(c_id,c_name,c_room,c_time,c_point,c_teacher);
 
         }catch (Exception e){
             e.printStackTrace();

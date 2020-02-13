@@ -55,14 +55,15 @@ public class TeacherController {
                                   @RequestParam(value = "c_room",required = false) String c_room,
                                   @RequestParam(value = "c_time",required = false) String c_time,
                                   @RequestParam(value = "c_point",required = false) int c_point,
-                                HttpServletRequest request,HttpServletResponse response){
+                                  @RequestParam(value = "c_teacher",required = false) String c_teacher,
+                                  HttpServletRequest request,HttpServletResponse response){
         HttpSession session=null;
 
         PrintWriter out=null;
         try {
             out = response.getWriter();
             session=request.getSession();
-            String ch=courseService.insertService(c_id,c_name,c_room,c_time,c_point);
+            String ch=courseService.insertService(c_id,c_name,c_room,c_time,c_point,c_teacher);
             if(ch=="success") { out.print("success");}
             else if(ch=="duplicate"){out.print("duplicate");}
             else {out.print("no");}

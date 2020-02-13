@@ -43,7 +43,6 @@ public class UserController {
         //todo 这里实现验证密码的功能
         //这里的返回数据需要自己设计
         User user = userService.login(id, password);
-        System.out.println(user.getPassword());
         if (user == null) {
             return "ino";
         } else if (password.equals(user.getPassword())) {

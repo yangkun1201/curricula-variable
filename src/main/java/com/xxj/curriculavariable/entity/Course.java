@@ -6,15 +6,17 @@ public class Course {
     private String c_room;
     private String c_time;
     private int c_point;
+    private String c_teacher;
 
     public Course(){}
 
-    public Course(String c_id, String c_name, String c_room, String c_time, int c_point) {
+    public Course(String c_id, String c_name, String c_room, String c_time, int c_point,String c_teacher) {
         this.c_id = c_id;
         this.c_name = c_name;
         this.c_room = c_room;
         this.c_time = c_time;
         this.c_point = c_point;
+        this.c_teacher=c_teacher;
     }
 
     public String getC_id() {
@@ -57,6 +59,10 @@ public class Course {
         this.c_point = c_point;
     }
 
+    public String getC_teacher(){return c_teacher;}
+
+    public void setC_teacher(){this.c_teacher=c_teacher;}
+
     @Override
     public String toString() {
         return "Course{" +
@@ -64,7 +70,8 @@ public class Course {
                 ", c_name='" + c_name + '\'' +
                 ", c_room='" + c_room + '\'' +
                 ", c_time='" + c_time + '\'' +
-                ", c_point=" + c_point +
+                ", c_point=" + c_point +'\''+
+                ", c_teacher="+c_teacher+
                 '}';
     }
 

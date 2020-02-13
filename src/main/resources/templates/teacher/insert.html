@@ -51,6 +51,10 @@
                     <input type="text" class="form-control" name="c_point"/>
                 </div><br/>
                 <div class="form-inline">
+                    <label>代课教师：</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="form-control" name="c_teacher" th:value="${session.teacher.getUsername()}" disabled="disabled"/>
+                </div><br/>
+                <div class="form-inline">
                     <input type="button" name="restart" class="btn btn-default" value="重置"/>
                     &nbsp;&nbsp;
                     <input type="button" name="save" class="btn btn-primary" value="保存"  />

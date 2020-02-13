@@ -12,7 +12,7 @@ public interface CourseService {
     public int getNumber();
 
     //创建课程
-    public String insertService(String c_id,String c_name,String c_room,String c_time,int c_point);
+    public String insertService(String c_id,String c_name,String c_room,String c_time,int c_point,String c_teacher);
 
 
 }

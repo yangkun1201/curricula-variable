@@ -36,6 +36,7 @@
                         <th>上课地点</th>
                         <th>上课时间</th>
                         <th>学分</th>
+                        <th>代课教师</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,6 +46,7 @@
                         <td th:text="${item.getC_room()}"></td>
                         <td th:text="${item.getC_time()}"></td>
                         <td th:text="${item.getC_point()}"></td>
+                        <td th:text="${item.getC_teacher()}"></td>
                         <td><input type="button" value="选课" class="btn btn-success" name="select" /></td>
                     </tr>
                 </tbody>

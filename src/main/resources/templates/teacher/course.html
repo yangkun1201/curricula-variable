@@ -36,6 +36,7 @@
                         <th>上课地点</th>
                         <th>上课时间</th>
                         <th>学分</th>
+                        <th>选课学生</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,6 +46,7 @@
                         <td name="text"><input type="text" class="form-control" th:value="${item.getC_room()}"/></td>
                         <td name="text"><input type="text" class="form-control" th:value="${item.getC_time()}"/></td>
                         <td name="text"><input type="text" class="form-control" th:value="${item.getC_point()}"/></td>
+                        <td name="text"><input type="text" class="form-control" th:value="${session.student.getUsername()}" disabled="disabled" /></td>
                         <td><input type="button" value="审核通过" class="btn btn-success" name="select" /></td>
                         <td><input type="button" value="审核不通过" class="btn btn-success" name="select" /></td>
                         <td><input type="button" value="修改课程" class="btn btn-success" name="select" /></td>
