@@ -18,4 +18,7 @@ public interface CourseMapper {
 
     //创建课程
     public boolean insertCourse(@Param("c_id") String c_id, @Param("c_name") String c_name,  @Param("c_room") String c_room,  @Param("c_time") String c_time, @Param("c_point") int c_point,@Param("c_teacher") String c_teacher);
+
+    //修改课程信息
+    public boolean updateCourse(@Param("c_id") String c_id, @Param("c_name") String c_name,  @Param("c_room") String c_room,  @Param("c_time") String c_time, @Param("c_point") int c_point,@Param("c_teacher") String c_teacher);
 }

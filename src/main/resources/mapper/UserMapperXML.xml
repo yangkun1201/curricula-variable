@@ -40,12 +40,4 @@
         select * from user where id=#{id}
     </select>
 
-    <update id="reducePoint">
-        update user set point=point-#{point} where id=#{id}
-    </update>
-
-    <update id="plusPoint">
-        UPDATE user SET point=point+#{s_point} WHERE id=#{s_id}
-    </update>
-
 </mapper>

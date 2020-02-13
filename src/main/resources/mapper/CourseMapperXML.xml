@@ -18,4 +18,8 @@
         insert into course values (#{c_id},#{c_name},#{c_room},#{c_time},#{c_point},#{c_teacher})
     </insert>
 
+    <update id="updateCourse" parameterType="com.xxj.curriculavariable.entity.Course">
+        update course set c_id=#{c_id},c_name=#{c_name},c_room=#{c_name},c_time=#{c_time},c_point=#{c_point},c_teacher=#{c_teacher}
+    </update>
+
 </mapper>
