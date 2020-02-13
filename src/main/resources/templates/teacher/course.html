@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>选课中心 - 学生选课系统</title>
+    <title>我的课题 - 学生选课系统</title>
     <link rel="icon" href="img/title.png"/>
     <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/index.css"/>
@@ -24,7 +24,7 @@
     <div class="course-show">
         <div class="course-show-title">
             <span name="select">
-                <span class="glyphicon glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;选课中心
+                <span class="glyphicon glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;我的课题
             </span>
         </div>
         <div name="fragment">
@@ -36,7 +36,7 @@
                         <th>上课地点</th>
                         <th>上课时间</th>
                         <th>学分</th>
-                        <th>选课学生</th>
+                        <th>授课教师</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,10 +46,9 @@
                         <td name="text"><input type="text" class="form-control" th:value="${item.getC_room()}"/></td>
                         <td name="text"><input type="text" class="form-control" th:value="${item.getC_time()}"/></td>
                         <td name="text"><input type="text" class="form-control" th:value="${item.getC_point()}"/></td>
-                        <td name="text"><input type="text" class="form-control" th:value="${session.student.getUsername()}" disabled="disabled" /></td>
-                        <td><input type="button" value="审核通过" class="btn btn-success" name="select" /></td>
-                        <td><input type="button" value="审核不通过" class="btn btn-success" name="select" /></td>
-                        <td><input type="button" value="修改课程" class="btn btn-success" name="select" /></td>
+                        <td name="text"><input type="text" class="form-control" th:value="${item.getC_teacher()}" disabled="disabled"/></td>
+                        <td><input type="button" value="删除课程" class="btn btn-success" name="deleteCourse" /></td>
+                        <td><input type="button" value="修改课程" class="btn btn-success" name="updateCourse" /></td>
                     </tr>
                 </tbody>
             </table>

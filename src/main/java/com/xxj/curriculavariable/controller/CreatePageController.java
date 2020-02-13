@@ -77,13 +77,15 @@ public class CreatePageController {
         return "student/course";
     }
 
-    //请求教师分页显示
+    //请求教师课题分页显示
     @RequestMapping("/course1")
     public String course1(@RequestParam("page") int page, javax.servlet.http.HttpServletRequest request){
         HttpSession session = null;
         try{
             session = request.getSession();
-            List<Course> list = courseService.sortPage(page);
+            User teacher = (User) session.getAttribute("teacher");
+            String c_teacher=teacher.getUsername();
+            List<Course> list = courseService.sortPage2(page,c_teacher);
             int number = courseService.getNumber();
             session.setAttribute("course",list);
             session.setAttribute("number",number);

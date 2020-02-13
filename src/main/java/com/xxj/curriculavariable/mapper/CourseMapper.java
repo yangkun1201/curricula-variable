@@ -13,6 +13,9 @@ public interface CourseMapper {
     // 根据id查询记录
     public Course selectById(String c_id);
 
+    //根据c_teacher查询记录
+    public List<Course> selectByTeacher(String c_teacher);
+
     //创建课程
     public boolean insertCourse(@Param("c_id") String c_id, @Param("c_name") String c_name,  @Param("c_room") String c_room,  @Param("c_time") String c_time, @Param("c_point") int c_point,@Param("c_teacher") String c_teacher);
 }

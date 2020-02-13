@@ -8,6 +8,9 @@ public interface CourseService {
     // 处理课程分页业务
     public List<Course> sortPage(int page);
 
+    // 处理课程分页业务
+    public List<Course> sortPage2(int page,String c_teacher);
+
     // 获取页数
     public int getNumber();
 
