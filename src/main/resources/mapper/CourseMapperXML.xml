@@ -15,11 +15,20 @@
     </select>
 
     <insert id="insertCourse" parameterType="com.xxj.curriculavariable.entity.Course">
-        insert into course values (#{c_id},#{c_name},#{c_room},#{c_time},#{c_point},#{c_teacher})
+        insert into course (`c_name`, `c_room`, `c_time`, `c_point`, `c_teacher`)
+                  values (#{c_name},#{c_room},#{c_time},#{c_point},#{c_teacher})
     </insert>
 
     <update id="updateCourse" parameterType="com.xxj.curriculavariable.entity.Course">
-        update course set c_id=#{c_id},c_name=#{c_name},c_room=#{c_name},c_time=#{c_time},c_point=#{c_point},c_teacher=#{c_teacher}
+        update
+            course
+        set
+            c_name=#{c_name},
+            c_room=#{c_room},
+            c_time=#{c_time},
+            c_point=#{c_point},
+            c_teacher=#{c_teacher}
+        where c_id = #{c_id}
     </update>
 
 </mapper>

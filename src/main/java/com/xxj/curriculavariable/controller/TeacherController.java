@@ -75,7 +75,7 @@ public class TeacherController {
         out.close();
     }
 
-    //创建课程信息
+    //修改课程信息
     @RequestMapping(value = "/updateCourseInfo", method = RequestMethod.POST)
     public void  updateCourseInfo(@RequestParam(value = "c_id",required = false) String c_id,
                                   @RequestParam(value = "c_name",required = false) String c_name,
