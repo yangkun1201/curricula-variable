@@ -14,6 +14,14 @@
         SELECT * FROM course WHERE c_teacher=#{c_teacher}
     </select>
 
+    <select id="selectByTime" resultType="com.xxj.curriculavariable.entity.Course">
+        SELECT * FROM course where c_time=#{c_time} and  c_teacher=#{c_teacher}
+    </select>
+
+    <select id="selectByName" resultType="com.xxj.curriculavariable.entity.Course">
+        SELECT * FROM course where c_name=#{c_name}
+    </select>
+
     <insert id="insertCourse" parameterType="com.xxj.curriculavariable.entity.Course">
         insert into course (`c_name`, `c_room`, `c_time`, `c_point`, `c_teacher`)
                   values (#{c_name},#{c_room},#{c_time},#{c_point},#{c_teacher})
@@ -30,5 +38,9 @@
             c_teacher=#{c_teacher}
         where c_id = #{c_id}
     </update>
+
+    <delete id="deleteCourse" parameterType="com.xxj.curriculavariable.entity.Course">
+        delete from course where c_id=#{c_id}
+    </delete>
 
 </mapper>

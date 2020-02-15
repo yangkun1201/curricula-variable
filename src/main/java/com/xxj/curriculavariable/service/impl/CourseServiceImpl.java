@@ -57,10 +57,15 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public String insertService(String c_id,String c_name,String c_room,String c_time,int c_point,String c_teacher){
         try{
-            Course ch=courseMapper.selectById(c_id);
+            Course ch=courseMapper.selectByName(c_name);
+            Course ch2=courseMapper.selectByTime(c_time,c_teacher);
             if(ch!=null)
             {
                 return "duplicate";
+            }
+            if(ch2!=null)
+            {
+                return "conflict";
             }
             courseMapper.insertCourse(c_id,c_name,c_room,c_time,c_point,c_teacher);
 
@@ -82,6 +87,16 @@ public class CourseServiceImpl implements CourseService {
         return "success";
     }
 
+    @Override
+    public String deleteService(String c_id,String c_name,String c_room,String c_time,int c_point,String c_teacher){
+        try{
+            courseMapper.deleteCourse(c_id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return "no";
+        }
+        return "success";
+    }
 
     @Override
     public int getNumber() {

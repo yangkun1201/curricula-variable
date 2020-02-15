@@ -28,9 +28,9 @@ $(function () {
                 window.location.href="/course1?page=1";
                 break;
             }
-            case "select":{
-                save("select");
-                window.location.href="/select";
+            case "check":{
+                save("check");
+                window.location.href="/check";
                 break;
             }
 

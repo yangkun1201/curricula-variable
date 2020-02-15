@@ -28,8 +28,10 @@ function insert_courseInfo(data) {
             if(msg=="success"){
                 dialog("添加课程成功！");
             }else if(msg=="duplicate"){
-                dialog("课程编号已存在！");
-            }else{
+                dialog("此课题已存在！");
+            } else if(msg=="conflict"){
+                dialog("该时间段已被占用！")
+            } else{
                 dialog("添加课程失败！")
             }
         },error:function () {
@@ -38,23 +40,42 @@ function insert_courseInfo(data) {
     });
 }
 
-//修改课程信息
-function update_courseInfo(data) {
+//删除课程
+function delete_courseInfo(data) {
     $.ajax({
         method: "POST",
         type: "POST",
-        url: "/updateCourseInfo",
+        url: "/deleteCourseInfo",
         data: data,
         success: function (msg) {
             if (msg == "success") {
-                dialog("修改课程成功！");
-            } else if (msg == "duplicate") {
-                dialog("课程编号已存在！");
-            } else {
-                dialog("修改课程失败！")
+                dialog("删除课程成功！");
+            }else {
+                dialog("删除课程失败！")
             }
         }, error: function () {
             dialog("ajax出错！");
         }
     });
 }
+
+//修改课程信息
+    function update_courseInfo(data) {
+        $.ajax({
+            method: "POST",
+            type: "POST",
+            url: "/updateCourseInfo",
+            data: data,
+            success: function (msg) {
+                if (msg == "success") {
+                    dialog("修改课程成功！");
+                } else if (msg == "duplicate") {
+                    dialog("课程编号已存在！");
+                } else {
+                    dialog("修改课程失败！")
+                }
+            }, error: function () {
+                dialog("ajax出错！");
+            }
+        });
+    }

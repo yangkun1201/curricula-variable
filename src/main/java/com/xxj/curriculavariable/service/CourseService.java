@@ -17,6 +17,8 @@ public interface CourseService {
     //创建课程
     public String insertService(String c_id,String c_name,String c_room,String c_time,int c_point,String c_teacher);
 
+    //删除课程
+    public String deleteService(String c_id,String c_name,String c_room,String c_time,int c_point,String c_teacher);
     //修改课程
     public String updateService(String c_id,String c_name,String c_room,String c_time,int c_point,String c_teacher);
 
