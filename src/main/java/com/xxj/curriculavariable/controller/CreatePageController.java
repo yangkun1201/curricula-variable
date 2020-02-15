@@ -61,7 +61,7 @@ public class CreatePageController {
     }
 
 
-    // 请求课程分页显示
+    // 请求学生课程分页显示
     @RequestMapping("/course")
     public String course(@RequestParam("page") int page, javax.servlet.http.HttpServletRequest request){
         HttpSession session = null;
@@ -95,7 +95,7 @@ public class CreatePageController {
         return "teacher/course";
     }
 
-    // 请求显示已选课程
+    // 请求显示学生已选课程
     @RequestMapping("/select")
     public String select(javax.servlet.http.HttpServletRequest request){
         try{
@@ -109,6 +109,19 @@ public class CreatePageController {
         return "student/select";
     }
 
+    //请求显示教师审核课题界面
+    @RequestMapping("/check")
+    public String check(javax.servlet.http.HttpServletRequest request){
+        try{
+            HttpSession session = request.getSession();
+            User student = (User) session.getAttribute("student");
+            List<Vcourse> list = selectService.selectCourse2(student.getId());
+            session.setAttribute("select",list);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {}
+        return "teacher/check";
+    }
 
     //学生更新页面
     public void updatePageInfo(HttpServletRequest request){
