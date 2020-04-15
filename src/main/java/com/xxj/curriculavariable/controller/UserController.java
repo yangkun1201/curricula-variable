@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 
@@ -56,7 +59,11 @@ public class UserController {
                 session.setAttribute("teacher",user2);
                 return "t_success";
             }
-            else{return "a_success";}
+            else {
+                User user2=userService.getUser(id);
+                session.setAttribute("admin",user2);
+                return "a_success";
+            }
         } else {
             return "pno";
         }
@@ -98,5 +105,97 @@ public class UserController {
             e.printStackTrace();
         }finally {}
         return "login/login";
+    }
+
+
+
+
+    //删除用户
+    @RequestMapping(value = "/delete_userInfo", method = RequestMethod.POST)
+    public void  delete_userInfo(@RequestParam(value = "c_id",required = false) String c_id,
+                                  javax.servlet.http.HttpServletRequest request, HttpServletResponse response){
+        HttpSession session=null;
+
+        PrintWriter out=null;
+        try {
+            out = response.getWriter();
+            session=request.getSession();
+            String ch=userService.deleteById(c_id);
+            System.out.println(ch);
+            if(ch=="success") {
+                out.print("success");
+            } else {
+                out.print("no");
+            }
+            out.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+        }
+        out.close();
+    }
+
+    //添加用户信息var data = {"c_name":c_name,"c_id":c_id,"c_pwd":c_pwd,"c_sex":c_sex,"c_type":c_type};
+    @RequestMapping(value = "/insert_memberInfo", method = RequestMethod.POST)
+    public void  insertCourseInfo(@RequestParam(value = "c_name",required = false) String c_name,
+                                  @RequestParam(value = "c_id",required = false) String c_id,
+                                  @RequestParam(value = "c_pwd",required = false) String c_pwd,
+                                  @RequestParam(value = "c_sex",required = false) String c_sex,
+                                  @RequestParam(value = "c_type",required = false) String c_type,
+                                  @RequestParam(value = "c_major",required = false) String c_major,
+                                  javax.servlet.http.HttpServletRequest request, HttpServletResponse response){
+        HttpSession session=null;
+
+        PrintWriter out=null;
+        try {
+            out = response.getWriter();
+            session=request.getSession();
+            String ch=userService.insertUserInfo(c_name,c_id,c_pwd,c_sex,c_type,c_major);
+            System.out.println(ch);
+            if(ch=="success") { out.print("success");}
+            else if(ch=="duplicate"){out.print("duplicate");}
+            else if (ch =="conflict") { out.print("conflict");}
+            else {
+                out.print("no");
+            }
+            out.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+        }
+        out.close();
+    }
+
+
+    //修改用户信息var data = {"c_name":c_name,"c_id":c_id,"c_pwd":c_pwd,"c_sex":c_sex,"c_type":c_type};
+    @RequestMapping(value = "/update_userInfo", method = RequestMethod.POST)
+    public void  update_userInfo(@RequestParam(value = "c_name",required = false) String c_name,
+                                  @RequestParam(value = "c_id",required = false) String c_id,
+                                  @RequestParam(value = "c_pwd",required = false) String c_pwd,
+                                  @RequestParam(value = "c_sex",required = false) String c_sex,
+                                  @RequestParam(value = "c_type",required = false) String c_type,
+                                  @RequestParam(value = "c_major",required = false) String c_major,
+                                 @RequestParam(value = "c_point",required = false) int c_point,
+                                  javax.servlet.http.HttpServletRequest request, HttpServletResponse response){
+        HttpSession session=null;
+
+        PrintWriter out=null;
+        try {
+            out = response.getWriter();
+            session=request.getSession();
+            String ch=userService.updateUserInfo(c_name,c_id,c_pwd,c_sex,c_type,c_major,c_point);
+            System.out.println(ch);
+            if(ch=="success") { out.print("success");}
+            else if(ch=="duplicate"){out.print("duplicate");}
+            else if (ch =="conflict") { out.print("conflict");}
+            else {
+                out.print("no");
+            }
+            out.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+        }
+        out.close();
     }
 }

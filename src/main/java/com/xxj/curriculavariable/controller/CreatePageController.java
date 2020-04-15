@@ -60,6 +60,13 @@ public class CreatePageController {
         return "teacher/insert";
     }
 
+    //请求添加用户界面
+    @RequestMapping("/memberInsert")
+    public String memberInsert(javax.servlet.http.HttpServletRequest request){
+        updatePageInfo3((HttpServletRequest) request);
+        return "admin/insert";
+    }
+
 
     // 请求学生课程分页显示
     @RequestMapping("/course")
@@ -75,6 +82,22 @@ public class CreatePageController {
             e.printStackTrace();
         }finally {}
         return "student/course";
+    }
+
+    // 请求用户列表分页显示
+    @RequestMapping("/member")
+    public String member(@RequestParam("page") int page, javax.servlet.http.HttpServletRequest request){
+        HttpSession session = null;
+        try{
+            session = request.getSession();
+            List<User> list = userService.queryUser(page);
+            int number = userService.getNumber();
+            session.setAttribute("member",list);
+            session.setAttribute("number",number);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {}
+        return "admin/member";
     }
 
     //请求教师课题分页显示

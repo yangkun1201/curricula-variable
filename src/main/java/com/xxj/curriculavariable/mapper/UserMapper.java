@@ -1,5 +1,6 @@
 package com.xxj.curriculavariable.mapper;
 
+import com.xxj.curriculavariable.entity.Course;
 import com.xxj.curriculavariable.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -12,13 +13,13 @@ import java.util.Map;
 @Component
 public interface UserMapper {
 
-    String insertUser(User user);
+    void insertUser(User user);
 
     //修改指定id的记录
-    public void updateByID(@Param("id")String id,@Param("userName")String userName,@Param("password") String password,
+    void updateByID(@Param("id")String id,@Param("userName")String userName,@Param("password") String password,
                            @Param("gender") String gender,@Param("major") String  major);
 
-    String deleteUserById(String id);
+    Integer deleteUserById(String id);
 
     User queryUserByUserId(String id);
 
@@ -33,5 +34,11 @@ public interface UserMapper {
     User login(@Param("id")String id,@Param("password")String password);
 
 
+    User selectByName(String c_name);
 
+    List<User> queryUser();
+
+    int getNumber();
+
+    void updateUserInfo(User user);
 }

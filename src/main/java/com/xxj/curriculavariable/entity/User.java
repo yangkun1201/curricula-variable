@@ -62,7 +62,7 @@ public class User {
 
     public int getPoint(){return point;}
 
-    public void setPoint(){this.point=point;}
+    public void setPoint(int c_point){this.point=c_point;}
 
     @Override
     public String toString() {

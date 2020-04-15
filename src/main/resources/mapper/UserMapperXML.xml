@@ -16,7 +16,10 @@
     <select id="queryUserMap" resultType="java.util.Map"></select>
 
     <insert id="insertUser" parameterType="com.xxj.curriculavariable.entity.User">
-    insert into user(username,password)values (#(username),#(password))
+    INSERT INTO user
+    (id, username, password, usertype, gender, major, point)
+    VALUES
+    (#{id}, #{username}, #{password}, #{usertype}, #{gender}, #{major}, #{point });
     </insert>
 
     <insert id="insertBatchUserList">
@@ -31,13 +34,25 @@
     <update id="updateByID" parameterType="com.xxj.curriculavariable.entity.User">
         update user set username=#{userName},password=#{password},gender=#{gender},major=#{major} where id=#{id}
     </update>
+    <update id="updateUserInfo" parameterType="com.xxj.curriculavariable.entity.User">
+        update user set username=#{username},password=#{password},gender=#{gender},major=#{major},usertype=#{usertype},point=#{point} where id=#{id}
+    </update>
 
-    <delete id="deleteUserById" parameterType="Integer">
+    <delete id="deleteUserById">
         delete from user where id=#{id}
     </delete>
 
     <select id="selectById" resultType="com.xxj.curriculavariable.entity.User" parameterType="String">
         select * from user where id=#{id}
+    </select>
+    <select id="selectByName" resultType="com.xxj.curriculavariable.entity.User">
+        select * from user where username=#{c_name}
+    </select>
+    <select id="queryUser" resultType="com.xxj.curriculavariable.entity.User">
+        select * from user
+    </select>
+    <select id="getNumber" resultType="java.lang.Integer">
+        select COUNT(*) FROM user
     </select>
 
 </mapper>
