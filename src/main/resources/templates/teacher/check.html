@@ -48,7 +48,7 @@
                     <td th:text="${item.getC_room()}"></td>
                     <td th:text="${item.getC_time()}"></td>
                     <td th:text="${item.getC_point()}"></td>
-                    <td th:text="${session.teacher.getUsername()}"></td>
+                    <td th:text="${item.getS_name()}"></td>
                     <td><input type="button" th:value="${item.getIsFlag()==1?'取消通过':'审核通过'} " class="btn btn-primary" name="check" /></td>
                 </tr>
                 </tbody>

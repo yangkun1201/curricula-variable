@@ -22,7 +22,7 @@
         SELECT * FROM course where c_name=#{c_name}
     </select>
     <select id="select" resultType="com.xxj.curriculavariable.entity.Vcourse">
-    SELECT c.*,s.isFlag,s.s_id FROM `select` AS s
+    SELECT c.*,s.isFlag,s.s_id,u.username as s_name FROM `select` AS s
     LEFT JOIN `user` u ON s.s_id = u.id
     LEFT JOIN course c ON s.c_id = c.c_id
     LEFT JOIN `user` t ON c.c_teacher = t.username

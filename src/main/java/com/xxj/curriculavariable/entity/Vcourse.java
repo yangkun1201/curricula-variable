@@ -9,6 +9,7 @@ public class Vcourse {
     private int c_point;
     private String c_teacher;
     private Integer isFlag;
+    private String s_name;
 
     public Vcourse(){}
 
@@ -99,5 +100,13 @@ public class Vcourse {
 
     public void setS_id(String s_id) {
         this.s_id = s_id;
+    }
+
+    public String getS_name() {
+        return s_name;
+    }
+
+    public void setS_name(String s_name) {
+        this.s_name = s_name;
     }
 }
