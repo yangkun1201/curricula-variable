@@ -27,13 +27,35 @@ $(function () {
 
     //审核通过
     $("input[name='check']").click(function () {
-
+        console.log("SSSS");
+        var c_id = $(this).parent("td").parent("tr").children("td[name='cid']").text();
+        var s_id = $(this).parent("td").parent("tr").children("td[name='sid']").text();
+        console.log(c_id);
+        console.log(s_id);
+        var data = {"c_id":c_id,"s_id":s_id};
+        check(data)
     });
 
-    //审核不通过
-    $("input[name='uncheck']").click(function () {
-
-    });
 
 
 })
+
+//删除课程
+function check(data) {
+    $.ajax({
+        method: "POST",
+        type: "POST",
+        url: "/checkCourse",
+        data: data,
+        success: function (msg) {
+            if (msg == "success") {
+                dialog("操作成功！");
+            }else {
+                dialog("操作失败！")
+            }
+            window.location.href="/check?page=1";
+        }, error: function () {
+            dialog("ajax出错！");
+        }
+    });
+}

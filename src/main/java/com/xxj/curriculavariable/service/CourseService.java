@@ -1,6 +1,7 @@
 package com.xxj.curriculavariable.service;
 
 import com.xxj.curriculavariable.entity.Course;
+import com.xxj.curriculavariable.entity.Vcourse;
 
 import java.util.List;
 
@@ -22,4 +23,9 @@ public interface CourseService {
     //修改课程
     public String updateService(String c_id,String c_name,String c_room,String c_time,int c_point,String c_teacher);
 
+    List<Vcourse> selectPage(int page, String c_teacher);
+
+    int getNumber_select(String c_teacher);
+
+    String checkCourse(String c_id, String s_id);
 }

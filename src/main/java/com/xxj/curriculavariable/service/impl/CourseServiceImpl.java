@@ -1,6 +1,7 @@
 package com.xxj.curriculavariable.service.impl;
 
 import com.xxj.curriculavariable.entity.Course;
+import com.xxj.curriculavariable.entity.Vcourse;
 import com.xxj.curriculavariable.mapper.CourseMapper;
 import com.xxj.curriculavariable.service.CourseService;
 import org.springframework.stereotype.Service;
@@ -88,6 +89,35 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public List<Vcourse> selectPage(int page, String c_teacher) {
+        List<Vcourse> list = null;
+        List<Vcourse> newlist = new ArrayList<>();
+        try {
+            list=courseMapper.select(c_teacher);
+            int start=(page-1)*5;
+            for(int i=start;i<start+5;i++){
+                if(i>=list.size())
+                {break;}
+                newlist.add(list.get(i));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {}
+        return newlist;
+    }
+
+    @Override
+    public int getNumber_select(String c_teacher) {
+        return (courseMapper.select(c_teacher).size()-1)/5;
+    }
+
+    @Override
+    public String checkCourse(String c_id, String s_id) {
+        return courseMapper.updateFlag(c_id,s_id)==0?"no":"success";
+    }
+
+    @Override
     public String deleteService(String c_id,String c_name,String c_room,String c_time,int c_point,String c_teacher){
         try{
             courseMapper.deleteCourse(c_id);
@@ -107,7 +137,7 @@ public class CourseServiceImpl implements CourseService {
             e.printStackTrace();
             return 0;
         }
-        return (list.size()/5);
+        return ((list.size()-1)/5);
     }
 
 }

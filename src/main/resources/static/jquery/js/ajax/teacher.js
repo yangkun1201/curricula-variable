@@ -53,6 +53,7 @@ function delete_courseInfo(data) {
             }else {
                 dialog("删除课程失败！")
             }
+            window.location.href="/course1?page=1";
         }, error: function () {
             dialog("ajax出错！");
         }
@@ -74,6 +75,7 @@ function delete_courseInfo(data) {
                 } else {
                     dialog("修改课程失败！")
                 }
+                window.location.href="/course1?page=1";
             }, error: function () {
                 dialog("ajax出错！");
             }

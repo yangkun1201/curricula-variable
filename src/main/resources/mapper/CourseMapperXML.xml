@@ -21,6 +21,13 @@
     <select id="selectByName" resultType="com.xxj.curriculavariable.entity.Course">
         SELECT * FROM course where c_name=#{c_name}
     </select>
+    <select id="select" resultType="com.xxj.curriculavariable.entity.Vcourse">
+    SELECT c.*,s.isFlag,s.s_id FROM `select` AS s
+    LEFT JOIN `user` u ON s.s_id = u.id
+    LEFT JOIN course c ON s.c_id = c.c_id
+    LEFT JOIN `user` t ON c.c_teacher = t.username
+    WHERE t.id = #{c_teacher}
+    </select>
 
     <insert id="insertCourse" parameterType="com.xxj.curriculavariable.entity.Course">
         insert into course (`c_name`, `c_room`, `c_time`, `c_point`, `c_teacher`)
@@ -37,6 +44,10 @@
             c_point=#{c_point},
             c_teacher=#{c_teacher}
         where c_id = #{c_id}
+    </update>
+    <update id="updateFlag">
+        UPDATE `select` set isFlag = (isFlag - 1 )*-1
+        WHERE c_id = #{c_id} AND s_id = #{s_id}
     </update>
 
     <delete id="deleteCourse" parameterType="com.xxj.curriculavariable.entity.Course">

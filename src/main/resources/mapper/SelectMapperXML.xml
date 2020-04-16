@@ -3,7 +3,7 @@
 <mapper namespace="com.xxj.curriculavariable.mapper.SelectMapper">
 
     <insert id="insert" parameterType="com.xxj.curriculavariable.entity.Select">
-          INSERT INTO `select` VALUES (#{s_id},#{c_id})
+          INSERT INTO `select` VALUES (#{s_id},#{c_id},0)
     </insert>
     <select id="selects" resultType="com.xxj.curriculavariable.entity.Select">
         SELECT * FROM `select` WHERE s_id=#{s_id} and c_id=#{c_id}
@@ -15,6 +15,6 @@
         DELETE FROM `select` WHERE s_id=#{s_id} and c_id=#{c_id}
     </delete>
     <select id="selectone" resultType="com.xxj.curriculavariable.entity.Select">
-        select * from `select`
+        select * from `select` WHERE s_id=#{s_id} and c_id=#{c_id}
     </select>
 </mapper>

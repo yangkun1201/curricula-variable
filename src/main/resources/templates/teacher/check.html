@@ -32,6 +32,7 @@
                 <thead>
                 <tr>
                     <th>课程编号</th>
+                    <th>学生编号</th>
                     <th>课程名</th>
                     <th>上课地点</th>
                     <th>上课时间</th>
@@ -41,14 +42,14 @@
                 </thead>
                 <tbody>
                 <tr th:each="item:${session.select}">
-                    <td th:id="${item.getC_id()}" name="id" th:text="${item.getC_id()}"></td>
+                    <td th:id="${item.getC_id()}" name="cid" th:text="${item.getC_id()}"></td>
+                    <td th:id="${item.getS_id()}" name="sid" th:text="${item.getS_id()}" type="hidden"></td>
                     <td th:text="${item.getC_name()}"></td>
                     <td th:text="${item.getC_room()}"></td>
                     <td th:text="${item.getC_time()}"></td>
                     <td th:text="${item.getC_point()}"></td>
-                    <td th:text="${session.student.getUsername()}"></td>
-                    <td><input type="button" value="审核通过" class="btn btn-primary" name="check" /></td>
-                    <td><input type="button" value="审核不通过" class="btn btn-primary" name="uncheck" /></td>
+                    <td th:text="${session.teacher.getUsername()}"></td>
+                    <td><input type="button" th:value="${item.getIsFlag()==1?'取消通过':'审核通过'} " class="btn btn-primary" name="check" /></td>
                 </tr>
                 </tbody>
             </table>
@@ -56,7 +57,7 @@
                 <li><a name="font">&laquo;</a></li>
             </ul>
             <ul class="pagination" th:each="i:${#numbers.sequence(0,session.number)}">
-                <li><a th:href="${'course?page='+(i+1)}" th:text="${i+1}"></a></li>
+                <li><a th:href="${'check?page='+(i+1)}" th:text="${i+1}"></a></li>
             </ul>
             <ul class="pagination" th:name="${session.number}">
                 <li><a name="next">&raquo;</a></li>

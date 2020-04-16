@@ -28,12 +28,12 @@ $(function () {
     //删除课程
     $("input[name='deleteCourse']").click(function () {
         console.log("sss");
-        var c_id = $("input[name='c_id']").val();
-        var c_name = $("input[name='c_name']").val();
-        var c_room = $("input[name='c_room']").val();
-        var c_time = $("input[name='c_time']").val();
-        var c_point = $("input[name='c_point']").val();
-        var c_teacher = $("input[name='c_teacher']").val();
+        var c_id = $(this).parent("td").parent("tr").children("td[name='c_id']").children("input").val();
+        var c_name = $(this).parent("td").parent("tr").children("td[name='c_name']").children("input").val();
+        var c_room = $(this).parent("td").parent("tr").children("td[name='c_room']").children("input").val();
+        var c_time = $(this).parent("td").parent("tr").children("td[name='c_time']").children("input").val();
+        var c_point = $(this).parent("td").parent("tr").children("td[name='c_point']").children("input").val();
+        var c_teacher = $(this).parent("td").parent("tr").children("td[name='c_teacher']").children("input").val();
         if(c_id==""||c_name==""||c_room==""||c_time==""||c_point==""){
             dialog("输入框不能为空！");
             return;
@@ -46,12 +46,12 @@ $(function () {
     //修改课程
     $("input[name='updateCourse']").click(function () {
         console.log("sss");
-        var c_id = $("input[name='c_id']").val();
-        var c_name = $("input[name='c_name']").val();
-        var c_room = $("input[name='c_room']").val();
-        var c_time = $("input[name='c_time']").val();
-        var c_point = $("input[name='c_point']").val();
-        var c_teacher = $("input[name='c_teacher']").val();
+        var c_id = $(this).parent("td").parent("tr").children("td[name='c_id']").children("input").val();
+        var c_name = $(this).parent("td").parent("tr").children("td[name='c_name']").children("input").val();
+        var c_room = $(this).parent("td").parent("tr").children("td[name='c_room']").children("input").val();
+        var c_time = $(this).parent("td").parent("tr").children("td[name='c_time']").children("input").val();
+        var c_point = $(this).parent("td").parent("tr").children("td[name='c_point']").children("input").val();
+        var c_teacher = $(this).parent("td").parent("tr").children("td[name='c_teacher']").children("input").val();
         if(c_id==""||c_name==""||c_room==""||c_time==""||c_point==""){
             dialog("输入框不能为空！");
             return;

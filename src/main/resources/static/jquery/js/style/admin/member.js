@@ -90,6 +90,7 @@ function update_userInfo(data) {
             }else{
                 dialog("修改失败！")
             }
+            window.location.href="/member?page=1";
         },error:function () {
             dialog("ajax出错！");
         }

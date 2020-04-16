@@ -1,13 +1,14 @@
 package com.xxj.curriculavariable.entity;
 
 public class Vcourse {
+    private String s_id;
     private String c_id;
     private String c_name;
     private String c_room;
     private String c_time;
     private int c_point;
     private String c_teacher;
-
+    private Integer isFlag;
 
     public Vcourse(){}
 
@@ -83,5 +84,20 @@ public class Vcourse {
                 ", c_point=" + c_point +'\''+
                 ", c_teacher"+ c_teacher+
                 '}';
+    }
+    public Integer getIsFlag() {
+        return isFlag;
+    }
+
+    public void setIsFlag(Integer isFlag) {
+        this.isFlag = isFlag;
+    }
+
+    public String getS_id() {
+        return s_id;
+    }
+
+    public void setS_id(String s_id) {
+        this.s_id = s_id;
     }
 }

@@ -56,7 +56,7 @@
                     <li><a name="font">&laquo;</a></li>
                 </ul>
                 <ul class="pagination" th:each="i:${#numbers.sequence(0,session.number)}">
-                    <li><a th:href="${'course?page='+(i+1)}" th:text="${i+1}"></a></li>
+                    <li><a th:href="${'course1?page='+(i+1)}" th:text="${i+1}"></a></li>
                 </ul>
                 <ul class="pagination" th:name="${session.number}">
                     <li><a name="next">&raquo;</a></li>

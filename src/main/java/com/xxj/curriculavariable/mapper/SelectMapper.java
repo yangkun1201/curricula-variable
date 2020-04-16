@@ -17,5 +17,5 @@ public interface SelectMapper {
     // 删除一条记录
     public void delete(@Param("s_id") String s_id, @Param("c_id") String c_id);
     //设定只允许选一门课
-    public Select selectone();
+    public Select selectone(@Param("s_id")String s_id, @Param("c_id") String c_id);
 }

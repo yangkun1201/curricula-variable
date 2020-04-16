@@ -30,7 +30,7 @@ $(function () {
             }
             case "check":{
                 save("check");
-                window.location.href="/check";
+                window.location.href="/check?page=1";
                 break;
             }
 

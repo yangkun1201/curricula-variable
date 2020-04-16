@@ -29,7 +29,7 @@ public class SelectServiceImpl implements SelectService {
             if(selectMapper.selects(select.getS_id(),select.getC_id())!=null){
                 return "no";
             }
-            if(selectMapper.selectone()!=null){
+            if(selectMapper.selectone(select.getS_id(),select.getC_id())!=null){
                 return "nouse";
             }
             selectMapper.insert(select);

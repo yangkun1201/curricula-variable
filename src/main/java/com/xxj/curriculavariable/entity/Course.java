@@ -8,6 +8,7 @@ public class Course {
     private int c_point;
     private String c_teacher;
 
+
     public Course(){}
 
     public Course(String c_id, String c_name, String c_room, String c_time, int c_point,String c_teacher) {
@@ -74,5 +75,6 @@ public class Course {
                 ", c_teacher="+c_teacher+
                 '}';
     }
+
 
 }

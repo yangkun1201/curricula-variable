@@ -1,6 +1,7 @@
 package com.xxj.curriculavariable.mapper;
 
 import com.xxj.curriculavariable.entity.Course;
+import com.xxj.curriculavariable.entity.Vcourse;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -30,4 +31,8 @@ public interface CourseMapper {
 
     //修改课程信息
     public boolean updateCourse(@Param("c_id") String c_id, @Param("c_name") String c_name,  @Param("c_room") String c_room,  @Param("c_time") String c_time, @Param("c_point") int c_point,@Param("c_teacher") String c_teacher);
+
+    List<Vcourse> select(String c_teacher);
+
+    Integer updateFlag(@Param("c_id")String c_id, @Param("s_id")String s_id);
 }

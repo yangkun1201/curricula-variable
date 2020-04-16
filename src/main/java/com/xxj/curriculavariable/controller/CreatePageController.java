@@ -134,12 +134,15 @@ public class CreatePageController {
 
     //请求显示教师审核课题界面
     @RequestMapping("/check")
-    public String check(javax.servlet.http.HttpServletRequest request){
+    public String check(@RequestParam("page") int page,javax.servlet.http.HttpServletRequest request){
         try{
             HttpSession session = request.getSession();
-            User student = (User) session.getAttribute("student");
-            List<Vcourse> list = selectService.selectCourse2(student.getId());
+            User teacher = (User) session.getAttribute("teacher");
+            String c_teacher=teacher.getId();
+            List<Vcourse> list = courseService.selectPage(page,c_teacher);
+            int number = courseService.getNumber_select(c_teacher);
             session.setAttribute("select",list);
+            session.setAttribute("number",number);
         }catch (Exception e){
             e.printStackTrace();
         }finally {}
