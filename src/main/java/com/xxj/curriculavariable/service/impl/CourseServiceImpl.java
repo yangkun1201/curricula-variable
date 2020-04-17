@@ -121,6 +121,7 @@ public class CourseServiceImpl implements CourseService {
     public String deleteService(String c_id,String c_name,String c_room,String c_time,int c_point,String c_teacher){
         try{
             courseMapper.deleteCourse(c_id);
+            courseMapper.deleteSelect(c_id);
         }catch (Exception e){
             e.printStackTrace();
             return "no";

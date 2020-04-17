@@ -53,5 +53,8 @@
     <delete id="deleteCourse" parameterType="com.xxj.curriculavariable.entity.Course">
         delete from course where c_id=#{c_id}
     </delete>
+    <delete id="deleteSelect">
+        delete from `select` where c_id=#{c_id}
+    </delete>
 
 </mapper>

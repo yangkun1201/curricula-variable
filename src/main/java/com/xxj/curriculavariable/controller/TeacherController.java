@@ -131,7 +131,7 @@ public class TeacherController {
         out.close();
     }
 
-    //删除课程
+    //审核课程
     @RequestMapping(value = "/checkCourse", method = RequestMethod.POST)
     public void  deleteCourseInfo(@RequestParam(value = "c_id",required = false) String c_id,
                                   @RequestParam(value = "s_id",required = false) String s_id,
