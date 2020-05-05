@@ -49,9 +49,9 @@ function delete_courseInfo(data) {
         data: data,
         success: function (msg) {
             if (msg == "success") {
-                dialog("删除课程成功！");
+                dialog("删除课题成功！");
             }else {
-                dialog("删除课程失败！")
+                dialog("删除课题失败！")
             }
             window.location.href="/course1?page=1";
         }, error: function () {
@@ -69,11 +69,11 @@ function delete_courseInfo(data) {
             data: data,
             success: function (msg) {
                 if (msg == "success") {
-                    dialog("修改课程成功！");
+                    dialog("修改课题成功！");
                 } else if (msg == "duplicate") {
-                    dialog("课程编号已存在！");
+                    dialog("课题编号已存在！");
                 } else {
-                    dialog("修改课程失败！")
+                    dialog("修改课题失败！")
                 }
                 window.location.href="/course1?page=1";
             }, error: function () {

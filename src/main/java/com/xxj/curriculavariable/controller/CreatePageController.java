@@ -149,6 +149,13 @@ public class CreatePageController {
         return "teacher/check";
     }
 
+    //学生上传课题报告页面
+    @RequestMapping("/uploding")
+    public String uploding(){
+        return "student/upload";
+    }
+
+
     //学生更新页面
     public void updatePageInfo(HttpServletRequest request){
         try {

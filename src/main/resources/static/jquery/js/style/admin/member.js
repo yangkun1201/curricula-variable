@@ -39,7 +39,7 @@ $(function () {
         delete_userInfo(data)
     });
 
-    //修改课程
+
     $("input[name='updateMember']").click(function () {
         console.log("sss");
         var c_id = $(this).parent("td").parent("tr").children("td[name='c_id']").children("input").val();

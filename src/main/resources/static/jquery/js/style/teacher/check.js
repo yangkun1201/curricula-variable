@@ -27,9 +27,10 @@ $(function () {
 
     //审核通过
     $("input[name='check']").click(function () {
-        console.log("SSSS");
-        var c_id = $(this).parent("td").parent("tr").children("td[name='cid']").text();
-        var s_id = $(this).parent("td").parent("tr").children("td[name='sid']").text();
+        var c_id = $(this).parent("td").parent("tr").
+        children("td[name='cid']").text();
+        var s_id = $(this).parent("td").parent("tr").
+        children("td[name='sid']").text();
         console.log(c_id);
         console.log(s_id);
         var data = {"c_id":c_id,"s_id":s_id};

@@ -28,6 +28,11 @@ $(function () {
                 window.location.href="/select";
                 break;
             }
+            case "uploding":{
+                save("uploding");
+                window.location.href="/uploding";
+                break;
+            }
             case "table":{
                 alert("生成课表");
                 break;
