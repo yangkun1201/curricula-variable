@@ -36,7 +36,6 @@ function select_studentCourse(data) {
                     break;
                 }
                 case "no":{
-                    console.log("llllll");
                     dialog("该课程已选！");
                     break;
                 }
@@ -84,6 +83,27 @@ function remove_course(data) {
                 dialog("退课成功！");
             }else{
                 dialog("退课失败！");
+            }
+        },error:function () {
+            dialog("ajax出错！");
+        }
+    });
+}
+
+//上传课题报告
+function upload_projectReport(data) {
+    $.ajax({
+        method:"POST",
+        type:"POST",
+        url:"/uploadProjectReport",
+        contentType: false,
+        processData: false,
+        data:data,
+        success:function (msg) {
+            if(msg=="success"){
+                dialog("上传成功！");
+            }else{
+                dialog("上传失败！");
             }
         },error:function () {
             dialog("ajax出错！");

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xxj.curriculavariable.mapper.FileUploadRecordMapper">
+
+    <insert id="addRecord" parameterType="com.xxj.curriculavariable.entity.FileUploadRecord">
+        insert into file_upload_record (user_id, name, path, upload_time)
+        value (#{userId},#{name},#{path},#{uploadTime})
+    </insert>
+
+</mapper>

@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
+import java.io.File;
+
 
 @Configuration
 public class WebMvcConfiguration extends WebMvcConfigurationSupport {
@@ -17,5 +19,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**").addResourceLocations("classpath:/");
+        String uploadPath = System.getProperty("user.dir") + File.separator + "upload" + File.separator;
+        registry.addResourceHandler("/upload/**").addResourceLocations("file:"+uploadPath);
     }
 }
