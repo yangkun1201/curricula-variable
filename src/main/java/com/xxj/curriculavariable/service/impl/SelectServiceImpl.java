@@ -62,6 +62,7 @@ public class SelectServiceImpl implements SelectService {
             Vcourse p = null;
             for(Select e : list){
                 p = new Vcourse(courseMapper.selectById(e.getC_id()));
+                p.setIsFlag(e.getIsFlag());
                 list2.add(p);
             }
         }catch (Exception e){

@@ -45,8 +45,9 @@
             c_teacher=#{c_teacher}
         where c_id = #{c_id}
     </update>
+
     <update id="updateFlag">
-        UPDATE `select` set isFlag = (isFlag - 1 )*-1
+        UPDATE `select` set isFlag = #{isFlag}
         WHERE c_id = #{c_id} AND s_id = #{s_id}
     </update>
 

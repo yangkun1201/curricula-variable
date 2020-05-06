@@ -133,24 +133,21 @@ public class TeacherController {
 
     //审核课程
     @RequestMapping(value = "/checkCourse", method = RequestMethod.POST)
-    public void  deleteCourseInfo(@RequestParam(value = "c_id",required = false) String c_id,
-                                  @RequestParam(value = "s_id",required = false) String s_id,
-                                  HttpServletRequest request,HttpServletResponse response){
-        HttpSession session=null;
+    public void checkCourseInfo(@RequestParam(value = "c_id",required = false) String c_id,
+                                @RequestParam(value = "s_id",required = false) String s_id,
+                                @RequestParam(value = "isFlag",required = false) int isFlag,
+                                HttpServletResponse response){
         PrintWriter out=null;
         try {
             out = response.getWriter();
-            session=request.getSession();
-            String ch=courseService.checkCourse(c_id,s_id);
-            if(ch=="success") { out.print("success");}
-            else {out.print("no");}
+            String ch=courseService.checkCourse(c_id,s_id,isFlag);
+            out.print(ch);
             out.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
+            out.close();
         }
-        out.close();
     }
-
 
 }
