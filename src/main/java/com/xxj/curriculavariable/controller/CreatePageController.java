@@ -1,8 +1,10 @@
 package com.xxj.curriculavariable.controller;
 
 import com.xxj.curriculavariable.entity.Course;
+import com.xxj.curriculavariable.entity.FileUploadRecord;
 import com.xxj.curriculavariable.entity.User;
 import com.xxj.curriculavariable.entity.Vcourse;
+import com.xxj.curriculavariable.service.FileUploadRecordService;
 import com.xxj.curriculavariable.service.SelectService;
 import com.xxj.curriculavariable.service.UserService;
 import com.xxj.curriculavariable.service.CourseService;
@@ -25,6 +27,9 @@ public class CreatePageController {
 
     @Resource
     private SelectService selectService;
+
+    @Resource
+    private FileUploadRecordService fileUploadRecordService;
 
     //请求访问学生首页
     @RequestMapping("/studentIndex")
@@ -153,6 +158,34 @@ public class CreatePageController {
     @RequestMapping("/uploding")
     public String uploding(){
         return "student/upload";
+    }
+
+    //教师查看学生课题报告界面
+    @RequestMapping("/fileUploadRecord1")
+    public String fileUploadRecord1(@RequestParam("page") int page, javax.servlet.http.HttpServletRequest request){
+        HttpSession session = null;
+        try{
+            session = request.getSession();
+            User teacher = (User) session.getAttribute("teacher");
+            String c_teacher=teacher.getUsername();
+            List<FileUploadRecord> list =fileUploadRecordService.sortPage(page,c_teacher);
+            int number = fileUploadRecordService.getNumber();
+            session.setAttribute("fileUploadRecord",list);
+            session.setAttribute("number",number);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {}
+        return "teacher/download";
+    }
+
+    //教师下载课题报告界面
+    @RequestMapping("/downloding")
+    public String downloding(@RequestParam("page") int page,javax.servlet.http.HttpServletRequest request){
+        try {
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "teacher/download";
     }
 
 

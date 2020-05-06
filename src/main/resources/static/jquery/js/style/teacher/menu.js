@@ -34,6 +34,12 @@ $(function () {
                 break;
             }
 
+            case "downloding":{
+                save("dowloding");
+                window.location.href="/fileUploadRecord1?page=1";
+                break;
+            }
+
             case "exit":{
                 clear();
                 window.location.href="/exit";
