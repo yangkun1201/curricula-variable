@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Select implements Serializable {
     private String s_id;
     private String c_id;
-    private int isFlag;
+//    private String status;
 
     public Select(){}
 
@@ -30,20 +30,16 @@ public class Select implements Serializable {
         this.c_id = c_id;
     }
 
-    public int getIsFlag() {
-        return isFlag;
-    }
-
-    public void setIsFlag(int isFlag) {
-        this.isFlag = isFlag;
-    }
+//    public String getStatus() { return status; }
+//
+//    public void setStatus(String status) { this.status = status; }
 
     @Override
     public String toString() {
         return "Select{" +
                 "s_id='" + s_id + '\'' +
                 ", c_id='" + c_id + '\'' +
-                ", isFlag='" + isFlag + '\'' +
+//                ",status='"+status+
                 '}';
     }
 }

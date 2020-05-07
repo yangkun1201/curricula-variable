@@ -40,3 +40,23 @@ $(function () {
 
 
 })
+
+//删除课程
+function check(data) {
+    $.ajax({
+        method: "POST",
+        type: "POST",
+        url: "/checkCourse",
+        data: data,
+        success: function (msg) {
+            if (msg == "success") {
+                dialog("操作成功！");
+            }else {
+                dialog("操作失败！")
+            }
+            window.location.href="/check?page=1";
+        }, error: function () {
+            dialog("ajax出错！");
+        }
+    });
+}

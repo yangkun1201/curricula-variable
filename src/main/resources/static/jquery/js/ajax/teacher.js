@@ -49,9 +49,9 @@ function delete_courseInfo(data) {
         data: data,
         success: function (msg) {
             if (msg == "success") {
-                dialog("下载成功！");
+                dialog("删除课题成功！");
             }else {
-                dialog("下载失败！")
+                dialog("删除课题失败！")
             }
             window.location.href="/course1?page=1";
         }, error: function () {
@@ -81,23 +81,3 @@ function delete_courseInfo(data) {
             }
         });
     }
-
-//显示学生的上传报告
-function watch_studentfiles(data) {
-    $.ajax({
-        method: "POST",
-        type: "POST",
-        url: "/watchStudentFiles",
-        data: data,
-        success: function (msg) {
-            if (msg == "success") {
-                dialog("下载成功！");
-            }else {
-                dialog("下载失败！")
-            }
-            window.location.href="/fileUpdateRecord?page=1";
-        }, error: function () {
-            dialog("ajax出错！");
-        }
-    });
-}

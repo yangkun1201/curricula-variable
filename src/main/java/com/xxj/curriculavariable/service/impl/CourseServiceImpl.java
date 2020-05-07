@@ -113,8 +113,8 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public String checkCourse(String c_id, String s_id,int isFlag) {
-        return courseMapper.updateFlag(c_id,s_id,isFlag) == 0 ? "no" : "success";
+    public String checkCourse(String c_id, String s_id) {
+        return courseMapper.updateFlag(c_id,s_id)==0?"no":"success";
     }
 
     @Override

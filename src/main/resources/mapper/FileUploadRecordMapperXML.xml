@@ -7,14 +7,4 @@
         value (#{userId},#{name},#{path},#{uploadTime})
     </insert>
 
-    <select id="selectAll" resultType="com.xxj.curriculavariable.entity.FileUploadRecord">
-        SELECT
-        f.id,
-        f.user_id as userId,
-        f.name,
-        f.path,
-        f.upload_time as uploadTime
-        FROM file_upload_record f
-    </select>
-
 </mapper>

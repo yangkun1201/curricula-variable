@@ -27,6 +27,5 @@ public interface CourseService {
 
     int getNumber_select(String c_teacher);
 
-    //审核选课
-    String checkCourse(String c_id, String s_id,int isFlag);
+    String checkCourse(String c_id, String s_id);
 }
