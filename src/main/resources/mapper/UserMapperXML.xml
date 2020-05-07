@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xxj.curriculavariable.mapper.UserMapper">
+
+    <select id="queryAllUserList" resultType="com.xxj.curriculavariable.entity.User">
+    select * from user
+    </select>
+
+    <select id="login" resultType="com.xxj.curriculavariable.entity.User">
+    select  id,username,password,usertype from user where id=#{id}
+    </select>
+
+    <select id="queryUserByUserId" resultType="com.xxj.curriculavariable.entity.User">
+    select id,username from user where id=#{id}
+    </select>
+    <select id="queryUserMap" resultType="java.util.Map"></select>
+
+    <insert id="insertUser" parameterType="com.xxj.curriculavariable.entity.User">
+    INSERT INTO user
+    (id, username, password, usertype, gender, major, point)
+    VALUES
+    (#{id}, #{username}, #{password}, #{usertype}, #{gender}, #{major}, #{point });
+    </insert>
+
+    <insert id="insertBatchUserList">
+        insert into user
+        (username,password)
+        values
+        <foreach collection ="list" item="item" separator =",">
+            (#{item.username}, #{item.password})
+        </foreach >
+    </insert>
+
+    <update id="updateByID" parameterType="com.xxj.curriculavariable.entity.User">
+        update user set username=#{userName},password=#{password},gender=#{gender},major=#{major} where id=#{id}
+    </update>
+    <update id="updateUserInfo" parameterType="com.xxj.curriculavariable.entity.User">
+        update user set username=#{username},password=#{password},gender=#{gender},major=#{major},usertype=#{usertype},point=#{point} where id=#{id}
+    </update>
+
+    <delete id="deleteUserById">
+        delete from user where id=#{id}
+    </delete>
+
+    <select id="selectById" resultType="com.xxj.curriculavariable.entity.User" parameterType="String">
+        select * from user where id=#{id}
+    </select>
+    <select id="selectByName" resultType="com.xxj.curriculavariable.entity.User">
+        select * from user where username=#{c_name}
+    </select>
+    <select id="queryUser" resultType="com.xxj.curriculavariable.entity.User">
+        select * from user
+    </select>
+    <select id="getNumber" resultType="java.lang.Integer">
+        select COUNT(*) FROM user
+    </select>
+
+</mapper>

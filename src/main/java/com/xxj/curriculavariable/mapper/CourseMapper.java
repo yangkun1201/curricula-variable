@@ -34,7 +34,7 @@ public interface CourseMapper {
 
     List<Vcourse> select(String c_teacher);
 
-    Integer updateFlag(@Param("c_id")String c_id, @Param("s_id")String s_id);
+    Integer updateFlag(@Param("c_id")String c_id, @Param("s_id")String s_id,@Param("isFlag") int isFlag);
 
     void deleteSelect(String c_id);
 }
