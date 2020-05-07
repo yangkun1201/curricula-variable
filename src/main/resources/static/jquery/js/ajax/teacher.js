@@ -101,3 +101,22 @@ function watch_studentfiles(data) {
         }
     });
 }
+
+//审核选题
+function check(data) {
+    $.ajax({
+        method: "POST",
+        type: "POST",
+        url: "/checkCourse",
+        data: data,
+        success: function (msg) {
+            if (msg == "success") {
+                dialog("审核成功！");
+            } else if (msg == "duplicate") {
+                dialog("审核失败！");
+            }
+        }, error: function () {
+            dialog("ajax出错！");
+        }
+    });
+}

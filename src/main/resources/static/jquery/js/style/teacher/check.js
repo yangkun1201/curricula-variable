@@ -26,17 +26,27 @@ $(function () {
     });
 
     //审核通过
-    $("input[name='check']").click(function () {
+    $("input[name='pass']").click(function () {
         var c_id = $(this).parent("td").parent("tr").
         children("td[name='cid']").text();
         var s_id = $(this).parent("td").parent("tr").
         children("td[name='sid']").text();
         console.log(c_id);
         console.log(s_id);
-        var data = {"c_id":c_id,"s_id":s_id};
+        var data = {"c_id":c_id,"s_id":s_id,'isFlag':1};
         check(data)
     });
-
+    //审核不通过
+    $("input[name='unpass']").click(function () {
+        var c_id = $(this).parent("td").parent("tr").
+        children("td[name='cid']").text();
+        var s_id = $(this).parent("td").parent("tr").
+        children("td[name='sid']").text();
+        console.log(c_id);
+        console.log(s_id);
+        var data = {"c_id":c_id,"s_id":s_id,'isFlag':2};
+        check(data)
+    });
 
 
 })
