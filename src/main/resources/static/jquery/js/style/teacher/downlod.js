@@ -24,4 +24,5 @@ $(function () {
             window.location.href = "/fileUploadRecord1?page=" + page;
         }
     });
+
 })

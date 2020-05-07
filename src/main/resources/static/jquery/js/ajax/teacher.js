@@ -120,3 +120,13 @@ function check(data) {
         }
     });
 }
+
+//下载文件
+function downloadFile(path){
+    path = window.location.origin + path;
+    console.log(path);
+    var a = document.createElement('a');
+    a.href = path;
+    a.click();
+    window.URL.revokeObjectURL(path);
+}

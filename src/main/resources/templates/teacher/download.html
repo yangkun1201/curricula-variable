@@ -11,7 +11,7 @@
     <script type="text/javascript" src="/static/jquery/js/style/dialog.js"></script>
     <script type="text/javascript" src="/static/jquery/js/ajax/teacher.js"></script>
     <script th:inline="javascript" type="text/javascript" src="/static/jquery/js/style/teacher/menu.js"></script>
-    <script th:inline="javascript" type="text/javascript" src="/static/jquery/js/style/teacher/download.js"></script>
+    <script th:inline="javascript" type="text/javascript" src="/static/jquery/js/style/teacher/downlod.js"></script>
 </head>
 <body>
 <!-- 加载菜单栏部分 -->
@@ -33,7 +33,6 @@
                 <tr>
                     <th>学生编号</th>
                     <th>报告名称</th>
-                    <th>报告路径</th>
                     <th>上传时间</th>
                     <th>操作</th>
                 </tr>
@@ -42,9 +41,8 @@
                 <tr th:each="item:${session.fileUploadRecord}">
                     <td th:id="${item.getUserId()}" name="cid" th:text="${item.getUserId()}"></td>
                     <td th:text="${item.getName()}"></td>
-                    <td th:text="${item.getPath()}"></td>
                     <td th:text="${item.getUploadTime()}"></td>
-                    <td><input type="button" value="下载" class="btn btn-success" name="download" /></td>
+                    <td><input type="button" value="下载" class="btn btn-success" name="download" th:onclick="|downloadFile('${item.getPath()}')| " /></td>
                 </tr>
                 </tbody>
             </table>
