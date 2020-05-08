@@ -1,9 +1,6 @@
 package com.xxj.curriculavariable.controller;
 
-import com.xxj.curriculavariable.entity.Course;
-import com.xxj.curriculavariable.entity.FileUploadRecord;
-import com.xxj.curriculavariable.entity.User;
-import com.xxj.curriculavariable.entity.Vcourse;
+import com.xxj.curriculavariable.entity.*;
 import com.xxj.curriculavariable.service.FileUploadRecordService;
 import com.xxj.curriculavariable.service.SelectService;
 import com.xxj.curriculavariable.service.UserService;
@@ -178,6 +175,23 @@ public class CreatePageController {
         return "teacher/download";
     }
 
+    //请求显示教师审核课题界面
+    @RequestMapping("/grade1")
+    public String grade1(@RequestParam("page") int page,javax.servlet.http.HttpServletRequest request){
+        try{
+            HttpSession session = request.getSession();
+            User teacher = (User) session.getAttribute("teacher");
+            String c_teacher=teacher.getId();
+            List<Vcourse> list = courseService.selectPage(page,c_teacher);
+            int number = courseService.getNumber_select(c_teacher);
+            session.setAttribute("vcourse",list);
+            session.setAttribute("number",number);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {}
+        return "teacher/grade";
+    }
+
     //教师下载课题报告界面
     @RequestMapping("/downloding")
     public String downloding(@RequestParam("page") int page,javax.servlet.http.HttpServletRequest request){
@@ -187,7 +201,15 @@ public class CreatePageController {
         }
         return "teacher/download";
     }
-
+    //教师给学生评分界面
+    @RequestMapping("/graded")
+    public String graded(@RequestParam("page") int page,javax.servlet.http.HttpServletRequest request){
+        try {
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "teacher/grade";
+    }
 
     //学生更新页面
     public void updatePageInfo(HttpServletRequest request){

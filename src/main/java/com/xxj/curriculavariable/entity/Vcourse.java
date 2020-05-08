@@ -10,6 +10,7 @@ public class Vcourse {
     private String c_teacher;
     private Integer isFlag;
     private String s_name;
+    private Integer grade;
 
     public Vcourse(){}
 
@@ -109,4 +110,8 @@ public class Vcourse {
     public void setS_name(String s_name) {
         this.s_name = s_name;
     }
+
+    public Integer getGrade(){return grade;}
+
+    public void setGrade(Integer grade){this.grade = grade; }
 }

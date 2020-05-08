@@ -39,7 +39,11 @@ $(function () {
                 window.location.href="/fileUploadRecord1?page=1";
                 break;
             }
-
+            case "graded":{
+                save("graded");
+                window.location.href="/grade1?page=1";
+                break;
+            }
             case "exit":{
                 clear();
                 window.location.href="/exit";
