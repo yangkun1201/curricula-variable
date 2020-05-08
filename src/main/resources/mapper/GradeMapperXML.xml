@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xxj.curriculavariable.mapper.GradeMapper">
+
+    <insert id="addGrade">
+        insert into grade (c_id, s_id, grade) value (#{c_id},#{s_id},#{grade})
+    </insert>
+    
+    <select id="getGrade" resultType="com.xxj.curriculavariable.entity.Grade">
+        select
+            c_id as cId,
+            s_id as sId,
+            grade
+        from grade where c_id = #{c_id} and s_id = #{s_id}
+    </select>
+
+    <update id="updateGrate">
+        update grade set grade = #{grade} where c_id = #{c_id} and s_id = #{s_id}
+    </update>
+
+    <select id="getAllGrade" resultType="com.xxj.curriculavariable.entity.VGrade">
+        select
+        g.c_id as cId,
+        g.s_id as sId,
+        g.grade,
+        c.c_name as cName,
+        u.username as sName
+        from grade g
+        left join course c on c.c_id = g.c_id
+        left join user u on u.id = g.s_id
+    </select>
+
+
+</mapper>

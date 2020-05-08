@@ -25,15 +25,5 @@ $(function () {
             window.location.href="/grade1?page="+page;
         }
     });
-    // 保存按钮
-    $("input[name='save']").click(function () {
-        var grade = $("input[name='grade']").val();
-        if(grade==""){
-            dialog("输入框不能为空！");
-            return;
-        }
-        var data = {"grade":grade};
-        console.log(data);
-        update_teacherGrade(data);
-    });
+
 })

@@ -45,14 +45,14 @@
                     <td th:id="${item.getS_id()}" name="sid" th:text="${item.getS_id()}" type="hidden"></td>
                     <td th:text="${item.getC_name()}"></td>
                     <td th:text="${item.getS_name()}"></td>
-                    <td><input type="text" size="4" class="form-control" name="grade" /></td>
-                    <td><input type="button" name="save" class="btn btn-primary" value="保存"/></td>
+                    <td><input type="text" size="4" class="form-control" name="grade" th:value="${item.getGrade()}" /></td>
+                    <td><input type="button" name="save" class="btn btn-primary" onclick="saveGrage(this)" value="保存"/></td>
                 </tr>
                 </tbody>
 
             </table>
             <div class="form-inline">
-                <input type="button" name="output" class="btn btn-primary" style="float: right" value="导出成绩表"/>
+                <input type="button" name="output" class="btn btn-primary" style="float: right" onclick="exportGrade()" value="导出成绩表"/>
             </div>
             <ul class="pagination">
                 <li><a name="font">&laquo;</a></li>

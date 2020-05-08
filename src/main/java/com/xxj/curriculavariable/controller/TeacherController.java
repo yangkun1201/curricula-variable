@@ -1,9 +1,12 @@
 package com.xxj.curriculavariable.controller;
 
 import com.xxj.curriculavariable.entity.User;
+import com.xxj.curriculavariable.entity.VGrade;
 import com.xxj.curriculavariable.service.CourseService;
+import com.xxj.curriculavariable.service.GradeService;
 import com.xxj.curriculavariable.service.SelectService;
 import com.xxj.curriculavariable.service.UserService;
+import com.xxj.curriculavariable.util.ExcelUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 @Controller
 public class TeacherController {
@@ -23,6 +28,9 @@ public class TeacherController {
 
     @Resource
     private CourseService courseService;
+
+    @Resource
+    private GradeService gradeService;
 
     //修改个人信息
     @RequestMapping(value = "/updateTeacherInfo", method = RequestMethod.POST)
@@ -148,6 +156,42 @@ public class TeacherController {
         } finally {
             out.close();
         }
+    }
+
+    //评分
+    @RequestMapping(value = "/addGrade",method = RequestMethod.POST)
+    public void addGrade(@RequestParam(value = "c_id",required = false) String c_id,
+                         @RequestParam(value = "s_id",required = false) String s_id,
+                         @RequestParam(value = "grade",required = false) String grade,
+                         HttpServletResponse response){
+        PrintWriter out=null;
+        try {
+            out = response.getWriter();
+            String ch = gradeService.addGrade(c_id, s_id, grade);
+            out.print(ch);
+            out.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            out.close();
+        }
+    }
+
+    //导出成绩表
+    @RequestMapping(value = "/exportGrade",method = RequestMethod.GET)
+    public void exportGrade(HttpServletResponse response){
+        //文件名
+        String excelName = "成绩表";
+        //excel表头
+        LinkedHashMap<String, String> fieldMap = new LinkedHashMap<>();
+        fieldMap.put("cId","课题编号");
+        fieldMap.put("sId","学生编号");
+        fieldMap.put("cName","课题名称");
+        fieldMap.put("sName","选课学生");
+        fieldMap.put("grade","学生成绩");
+        //表数据
+        List<VGrade> gradeList = gradeService.getAllGrade();
+        ExcelUtil.export(excelName,gradeList,fieldMap,response);
     }
 
 }

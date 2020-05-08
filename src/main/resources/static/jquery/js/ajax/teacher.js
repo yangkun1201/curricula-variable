@@ -120,3 +120,55 @@ function check(data) {
         }
     });
 }
+
+//下载文件
+function downloadFile(path){
+    path = window.location.origin + path;
+    console.log(path);
+    var a = document.createElement('a');
+    a.href = path;
+    a.click();
+    window.URL.revokeObjectURL(path);
+}
+
+//保存成绩
+function saveGrage(obj){
+    var parent = $(obj).parent('td').parent('tr');
+    var c_id = $(parent).children()[0].innerText;
+    var s_id = $(parent).children()[1].innerText;
+    var grade = $(obj).parent('td').prev('td').children().val();
+    if(grade==""){
+        dialog("输入框不能为空！");
+        return;
+    }
+    var data = {
+        'c_id':c_id,
+        's_id':s_id,
+        'grade':grade
+    }
+    console.log(data);
+    $.ajax({
+        method: "POST",
+        type: "POST",
+        url: "/addGrade",
+        data: data,
+        success: function (msg) {
+            if (msg == "success") {
+                dialog("评分成功！");
+            }else {
+                dialog("评分失败！")
+            }
+        }, error: function () {
+            dialog("ajax出错！");
+        }
+    });
+}
+
+//导出成绩表
+function exportGrade(){
+    path = window.location.origin + '/exportGrade';
+    var a = document.createElement('a');
+    a.href = path;
+    a.click();
+    window.URL.revokeObjectURL(path);
+}
